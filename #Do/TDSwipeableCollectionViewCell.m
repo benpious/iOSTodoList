@@ -77,7 +77,6 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
                            self.swipeOffset = 0;
                          }
                          completion:^(BOOL __unused finished) {
-                           self.swipeView = nil;
                          }];
 }
 
@@ -86,7 +85,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
     return TDItemMarkStateDeleted;
   }
   else {
-    if (self.swipeMarkingState == TDItemMarkStateDone) {
+    if (self.priorSwipeMarkingState == TDItemMarkStateDone) {
       return TDItemMarkStateNotDone;
     }
     else {
@@ -120,7 +119,8 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   _swipeView = swipeView;
   _swipeView.theme = self.theme;
   [self.contentView insertSubview:_swipeView
-                          atIndex:self.subviews.count];
+                          atIndex:0];
+  [self setNeedsLayout];
 }
 
 - (void)setPanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
@@ -147,7 +147,6 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   _theme = theme;
   self.swipeView.theme = theme;
   self.contentEffectView.theme = theme;
-  self.backgroundColor = theme.backgroundColor;
 }
 
 #pragma mark swiping logic
