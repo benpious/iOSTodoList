@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C2F261C9E5E6E00B8901D /* TDTheme.m */; };
 		3B6490111C9DCBB100076568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490101C9DCBB100076568 /* main.m */; };
 		3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490131C9DCBB100076568 /* AppDelegate.m */; };
 		3B64901C1C9DCBB100076568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B64901B1C9DCBB100076568 /* Assets.xcassets */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B4C2F251C9E5E6E00B8901D /* TDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTheme.h; sourceTree = "<group>"; };
+		3B4C2F261C9E5E6E00B8901D /* TDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTheme.m; sourceTree = "<group>"; };
 		3B64900C1C9DCBB100076568 /* #Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6490101C9DCBB100076568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B6490121C9DCBB100076568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4C2F241C9E5E5F00B8901D /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C2F251C9E5E6E00B8901D /* TDTheme.h */,
+				3B4C2F261C9E5E6E00B8901D /* TDTheme.m */,
+			);
+			name = Theming;
+			sourceTree = "<group>";
+		};
 		3B6490031C9DCBB100076568 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 			children = (
 				3B6490121C9DCBB100076568 /* AppDelegate.h */,
 				3B6490131C9DCBB100076568 /* AppDelegate.m */,
+				3B4C2F241C9E5E5F00B8901D /* Theming */,
 				3B6490631C9DD80500076568 /* Utilities */,
 				3B6490491C9DCCE300076568 /* Views and UI */,
 				3B6490481C9DCCDB00076568 /* Model */,
@@ -405,6 +418,7 @@
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
+				3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */,
 				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
 				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
 				3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */,

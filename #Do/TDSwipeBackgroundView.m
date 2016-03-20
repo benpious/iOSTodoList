@@ -32,11 +32,12 @@
 @end
 
 @implementation TDSwipeBackgroundView
+@synthesize theme = _theme;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
+    self.iconLabel = [[UILabel alloc] init];
     self.icon = self.class.defaultIconText;
-    self.backgroundColor = [UIColor redColor];
   }
   return self;
 }
@@ -65,6 +66,11 @@
   self.iconLabel.text = icon;
 }
 
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.iconLabel.textColor = theme.textColor;
+}
+
 - (NSString *)icon {
   return self.iconLabel.text;
 }
@@ -90,6 +96,11 @@
 
 @implementation TDSwipeDoneView
 
+- (void)setTheme:(TDTheme *)theme {
+  [super setTheme:theme];
+  self.backgroundColor = self.theme.doneColor;
+}
+
 + (NSString *)defaultIconText {
   return @"Done";
 }
@@ -98,6 +109,11 @@
 
 @implementation TDSwipeNotDoneView
 
+- (void)setTheme:(TDTheme *)theme {
+  [super setTheme:theme];
+  self.backgroundColor = self.theme.backgroundColor;
+}
+
 + (NSString *)defaultIconText {
   return @"Not Done";
 }
@@ -105,6 +121,11 @@
 @end
 
 @implementation TDSwipeDeletedView
+
+- (void)setTheme:(TDTheme *)theme {
+  [super setTheme:theme];
+  self.backgroundColor = self.theme.deleteColor;
+}
 
 + (NSString *)defaultIconText {
   return @"Delete";

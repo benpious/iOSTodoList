@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Model+UI.h"
 #import "TDItemMarkState.h"
+#import "TDTheme.h"
 
 @protocol TDRootViewDelegate <NSObject>
 
@@ -19,7 +20,7 @@
 
 @end
 
-@interface TDRootView : UIView
+@interface TDRootView : UIView <TDThemeable>
 
 - (instancetype)initWithDelegate:(id<TDRootViewDelegate>)delegate;
 @property (nonatomic) id<TDDisplayDataSource> dataSource;

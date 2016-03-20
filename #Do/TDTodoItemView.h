@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TDTodoItemDisplay.h"
+#import "TDTheme.h"
 
-@interface TDTodoItemView : UIView <TDTodoItemDisplay>
+@interface TDTodoItemView : UIView <TDTodoItemDisplay, TDThemeable>
 
 @end

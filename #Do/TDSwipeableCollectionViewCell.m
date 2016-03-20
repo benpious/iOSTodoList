@@ -27,6 +27,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 @end
 
 @implementation TDSwipeableCollectionViewCell
+@synthesize theme = _theme;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
@@ -116,6 +117,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 - (void)setSwipeView:(TDSwipeBackgroundView *)swipeView {
   [_swipeView removeFromSuperview];
   _swipeView = swipeView;
+  _swipeView.theme = self.theme;
   [self.contentView insertSubview:_swipeView
                           atIndex:self.subviews.count];
 }
@@ -138,6 +140,13 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 - (void)setHighlighted:(BOOL)highlighted {
   [super setHighlighted:highlighted];
   self.contentEffectView.isContentPressed = highlighted;
+}
+
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.swipeView.theme = theme;
+  self.contentEffectView.theme = theme;
+  self.backgroundColor = theme.backgroundColor;
 }
 
 #pragma mark swiping logic

@@ -10,8 +10,9 @@
 #import "TDRootView.h"
 #import "TDTodoSectionList.h"
 #import "TDMutableModelCollection.h"
+#import "TDTheme.h"
 
-@interface TDRootViewController () <TDRootViewDelegate>
+@interface TDRootViewController () <TDRootViewDelegate, TDThemeable>
 
 @property (nonatomic, readonly) TDRootView *rootView;
 @property (nonatomic) TDTodoSectionList *sections;
@@ -22,6 +23,7 @@
 @end
 
 @implementation TDRootViewController
+@synthesize theme = _theme;
 
 - (void)loadView {
   self.view = [[TDRootView alloc] initWithDelegate:self];
@@ -31,7 +33,13 @@
   [super viewDidLoad];
   self.sections = [[TDTodoSectionList alloc] initWithList:@[[[TDTodoSection alloc] initWithTitle:@"Todo"
                                                                                            items:@[[[TDTodoItem alloc] initWithTitle:@"Test"]]]]];
+  TDTheme *theme = [[TDTheme alloc] init];
+  theme.backgroundColor = [UIColor yellowColor];
+  theme.textColor = [UIColor whiteColor];
+  theme.foregroundColor = [UIColor grayColor];
+  theme.deleteColor = [UIColor redColor];
   self.collectionToDisplay = self.sections;
+  self.theme = theme;
 }
 
 - (TDRootView *)rootView {
@@ -47,6 +55,11 @@
 - (void)setCollectionToDisplay:(id<TDDisplayDataSource>)collectionToDisplay {
   _collectionToDisplay = collectionToDisplay;
   self.rootView.dataSource = collectionToDisplay;
+}
+
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.rootView.theme = _theme;
 }
 
 #pragma mark - view delegate

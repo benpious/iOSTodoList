@@ -14,6 +14,7 @@
 @end
 
 @implementation TDCellContentView
+@synthesize theme = _theme;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
@@ -40,7 +41,7 @@
                    }];
 }
 
-- (void)setContentView:(UIView *)contentView {
+- (void)setContentView:(UIView<TDThemeable> *)contentView {
   [_contentView removeFromSuperview];
   _contentView = contentView;
   [self addSubview:_contentView];
@@ -57,6 +58,11 @@
 
 - (CGAffineTransform)transformForContentView {
   return self.isContentPressed ? self.pressedTransform : self.normalTransform;
+}
+
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.contentView.theme = theme;
 }
 
 @end

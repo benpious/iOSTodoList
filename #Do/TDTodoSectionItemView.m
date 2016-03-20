@@ -17,11 +17,11 @@
 @end
 
 @implementation TDTodoSectionItemView
+@synthesize theme = _theme;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
     self.nameField = [[TDTextField alloc] init];
-    self.backgroundColor = [UIColor grayColor];
   }
   return self;
 }
@@ -45,6 +45,12 @@
 
 - (NSString *)name {
   return self.nameField.text;
+}
+
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.nameField.textColor = theme.textColor;
+  self.backgroundColor = theme.foregroundColor;
 }
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDTheme.h"
 
-@interface TDCellContentView : UIView
+@interface TDCellContentView : UIView <TDThemeable>
 
-@property (nonatomic) UIView *contentView;
+@property (nonatomic) UIView<TDThemeable> *contentView;
 @property (nonatomic) BOOL isContentPressed;
 
 @end

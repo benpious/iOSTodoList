@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TDItemMarkState.h"
+#import "TDTheme.h"
 
-@interface TDSwipeBackgroundView : UIView
+@interface TDSwipeBackgroundView : UIView <TDThemeable>
 
 @property (nonatomic) NSString *icon;
 + (id)swipeBackgroundToMarkState:(TDItemMarkState)markState;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TDItemMarkState.h"
 #import "TDCellContentView.h"
+#import "TDTheme.h"
 
 @class TDSwipeableCollectionViewCell;
 
@@ -19,13 +20,12 @@
 
 @end
 
-@interface TDSwipeableCollectionViewCell : UICollectionViewCell
+@interface TDSwipeableCollectionViewCell : UICollectionViewCell <TDThemeable>
 
 @property (nonatomic, readonly) BOOL allowsSwiping;
 @property (nonatomic) CGFloat swipeOffset;
 @property (nonatomic, weak) id<TDSwipeableCollectionViewCellDelegate> swipeActionDelegate;
 @property (nonatomic) TDCellContentView *contentEffectView;
-
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation;
 
 @end

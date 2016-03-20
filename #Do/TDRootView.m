@@ -17,6 +17,7 @@
 @end
 
 @implementation TDRootView
+@synthesize theme = _theme;
 
 - (instancetype)initWithDelegate:(id<TDRootViewDelegate>)delegate {
   if (self = [super init]) {
@@ -27,7 +28,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
-    self.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:frame
                                              collectionViewLayout:flowLayout];
@@ -62,6 +62,14 @@
   [self.collectionView reloadData];
 }
 
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  NSArray *cells = self.collectionView.visibleCells;
+  for (TDSwipeableCollectionViewCell *cell in cells) {
+    cell.theme = _theme;
+  }
+}
+
 #pragma mark - collection view methods
 
 - (NSInteger)collectionView:(UICollectionView *)__unused collectionView
@@ -78,6 +86,7 @@
   TDSwipeableCollectionViewCell *swipeCell = [self.dataSource collectionView:collectionView
                                                       cellForItemAtIndexPath:indexPath];
   swipeCell.swipeActionDelegate = self;
+  swipeCell.theme = self.theme;
   return swipeCell;
 }
 

@@ -18,7 +18,7 @@
 @end
 
 @implementation TDTodoItemView
-@synthesize isExpanded = _isExpanded, isDone = _isDone;
+@synthesize isExpanded = _isExpanded, isDone = _isDone, theme = _theme;
 
 #pragma mark - layout
 
@@ -65,6 +65,12 @@
 
 - (NSString *)title {
   return self.titleField.text;
+}
+
+- (void)setTheme:(TDTheme *)theme {
+  _theme = theme;
+  self.titleField.textColor = theme.textColor;
+  self.backgroundColor = theme.foregroundColor;
 }
 
 @end
