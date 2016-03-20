@@ -9,6 +9,7 @@
 #import "TDRootView.h"
 #import "CGGeometry+DoApp.h"
 #import "TDSwipeableCollectionViewCell.h"
+#import "TDCollectionViewLayout.h"
 
 @interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate>
 
@@ -28,7 +29,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *flowLayout = [[TDCollectionViewLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:frame
                                              collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor clearColor];

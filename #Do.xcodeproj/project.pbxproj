@@ -29,6 +29,7 @@
 		3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF8E1C9E1CE9002C6A58 /* TDTextField.m */; };
 		3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */; };
 		3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */; };
+		3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSwipeableCollectionViewCell.m; sourceTree = "<group>"; };
 		3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCellContentView.h; sourceTree = "<group>"; };
 		3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCellContentView.m; sourceTree = "<group>"; };
+		3BBA114E1C9F0F1C00E7C688 /* TDCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCollectionViewLayout.h; sourceTree = "<group>"; };
+		3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCollectionViewLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 				3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */,
 				3B88DF901C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.h */,
 				3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */,
+				3BBA114E1C9F0F1C00E7C688 /* TDCollectionViewLayout.h */,
+				3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */,
 				3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */,
 				3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */,
 				3B6490751C9E02B400076568 /* Items */,
@@ -418,6 +423,7 @@
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
+				3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */,
 				3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */,
 				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
 				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
