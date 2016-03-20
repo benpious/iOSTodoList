@@ -9,12 +9,25 @@
 /* Begin PBXBuildFile section */
 		3B6490111C9DCBB100076568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490101C9DCBB100076568 /* main.m */; };
 		3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490131C9DCBB100076568 /* AppDelegate.m */; };
-		3B6490171C9DCBB100076568 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490161C9DCBB100076568 /* ViewController.m */; };
-		3B64901A1C9DCBB100076568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6490181C9DCBB100076568 /* Main.storyboard */; };
 		3B64901C1C9DCBB100076568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B64901B1C9DCBB100076568 /* Assets.xcassets */; };
 		3B64901F1C9DCBB100076568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B64901D1C9DCBB100076568 /* LaunchScreen.storyboard */; };
 		3B64902A1C9DCBB100076568 /* _DoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490291C9DCBB100076568 /* _DoTests.m */; };
 		3B6490351C9DCBB100076568 /* _DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490341C9DCBB100076568 /* _DoUITests.m */; };
+		3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490431C9DCBEA00076568 /* TDRootViewController.m */; };
+		3B6490471C9DCC6000076568 /* TDRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490461C9DCC6000076568 /* TDRootView.m */; };
+		3B64904C1C9DCCFE00076568 /* TDTodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64904B1C9DCCFE00076568 /* TDTodoItem.m */; };
+		3B64904F1C9DCD0F00076568 /* TDTodoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64904E1C9DCD0F00076568 /* TDTodoSection.m */; };
+		3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490511C9DCD2000076568 /* TDTodoSectionList.m */; };
+		3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */; };
+		3B64905C1C9DCD8B00076568 /* TDTodoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64905B1C9DCD8B00076568 /* TDTodoItemView.m */; };
+		3B64905F1C9DCD9500076568 /* TDTodoSectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64905E1C9DCD9500076568 /* TDTodoSectionItemView.m */; };
+		3B6490621C9DD78700076568 /* CGGeometry+DoApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */; };
+		3B6490681C9DDB5A00076568 /* Model+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490671C9DDB5A00076568 /* Model+UI.m */; };
+		3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64906D1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m */; };
+		3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490701C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m */; };
+		3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF8E1C9E1CE9002C6A58 /* TDTextField.m */; };
+		3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */; };
+		3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +52,6 @@
 		3B6490101C9DCBB100076568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B6490121C9DCBB100076568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B6490131C9DCBB100076568 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3B6490151C9DCBB100076568 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3B6490161C9DCBB100076568 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3B6490191C9DCBB100076568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B64901B1C9DCBB100076568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B64901E1C9DCBB100076568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B6490201C9DCBB100076568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +61,40 @@
 		3B6490301C9DCBB100076568 /* #DoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#DoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6490341C9DCBB100076568 /* _DoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _DoUITests.m; sourceTree = "<group>"; };
 		3B6490361C9DCBB100076568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B6490421C9DCBEA00076568 /* TDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRootViewController.h; path = ../TDRootViewController.h; sourceTree = "<group>"; };
+		3B6490431C9DCBEA00076568 /* TDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRootViewController.m; path = ../TDRootViewController.m; sourceTree = "<group>"; };
+		3B6490451C9DCC6000076568 /* TDRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRootView.h; sourceTree = "<group>"; };
+		3B6490461C9DCC6000076568 /* TDRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRootView.m; sourceTree = "<group>"; };
+		3B64904A1C9DCCFE00076568 /* TDTodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItem.h; sourceTree = "<group>"; };
+		3B64904B1C9DCCFE00076568 /* TDTodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoItem.m; sourceTree = "<group>"; };
+		3B64904D1C9DCD0F00076568 /* TDTodoSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoSection.h; sourceTree = "<group>"; };
+		3B64904E1C9DCD0F00076568 /* TDTodoSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoSection.m; sourceTree = "<group>"; };
+		3B6490501C9DCD2000076568 /* TDTodoSectionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoSectionList.h; sourceTree = "<group>"; };
+		3B6490511C9DCD2000076568 /* TDTodoSectionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoSectionList.m; sourceTree = "<group>"; };
+		3B6490541C9DCD6000076568 /* TDSwipeBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSwipeBackgroundView.h; sourceTree = "<group>"; };
+		3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSwipeBackgroundView.m; sourceTree = "<group>"; };
+		3B64905A1C9DCD8B00076568 /* TDTodoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItemView.h; sourceTree = "<group>"; };
+		3B64905B1C9DCD8B00076568 /* TDTodoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TDTodoItemView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		3B64905D1C9DCD9500076568 /* TDTodoSectionItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoSectionItemView.h; sourceTree = "<group>"; };
+		3B64905E1C9DCD9500076568 /* TDTodoSectionItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TDTodoSectionItemView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "CGGeometry+DoApp.c"; sourceTree = "<group>"; };
+		3B6490611C9DD78700076568 /* CGGeometry+DoApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+DoApp.h"; sourceTree = "<group>"; };
+		3B6490661C9DDB5A00076568 /* Model+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Model+UI.h"; sourceTree = "<group>"; };
+		3B6490671C9DDB5A00076568 /* Model+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Model+UI.m"; sourceTree = "<group>"; };
+		3B64906C1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTodoItemCollectionViewCell.h; path = ../TDTodoItemCollectionViewCell.h; sourceTree = "<group>"; };
+		3B64906D1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TDTodoItemCollectionViewCell.m; path = ../TDTodoItemCollectionViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		3B64906F1C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTodoSectionCollectionViewCell.h; path = ../TDTodoSectionCollectionViewCell.h; sourceTree = "<group>"; };
+		3B6490701C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTodoSectionCollectionViewCell.m; path = ../TDTodoSectionCollectionViewCell.m; sourceTree = "<group>"; };
+		3B6490721C9DF59600076568 /* TDMutableModelCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMutableModelCollection.h; sourceTree = "<group>"; };
+		3B6490731C9DF7F000076568 /* TDItemMarkState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDItemMarkState.h; sourceTree = "<group>"; };
+		3B6490761C9E111200076568 /* TDTodoItemDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItemDisplay.h; sourceTree = "<group>"; };
+		3B6490771C9E14AC00076568 /* TDSectionDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSectionDisplay.h; sourceTree = "<group>"; };
+		3B88DF8D1C9E1CE9002C6A58 /* TDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TDTextField.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3B88DF8E1C9E1CE9002C6A58 /* TDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTextField.m; sourceTree = "<group>"; };
+		3B88DF901C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSwipeableCollectionViewCell.h; sourceTree = "<group>"; };
+		3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSwipeableCollectionViewCell.m; sourceTree = "<group>"; };
+		3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCellContentView.h; sourceTree = "<group>"; };
+		3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCellContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +147,9 @@
 			children = (
 				3B6490121C9DCBB100076568 /* AppDelegate.h */,
 				3B6490131C9DCBB100076568 /* AppDelegate.m */,
-				3B6490151C9DCBB100076568 /* ViewController.h */,
-				3B6490161C9DCBB100076568 /* ViewController.m */,
-				3B6490181C9DCBB100076568 /* Main.storyboard */,
+				3B6490631C9DD80500076568 /* Utilities */,
+				3B6490491C9DCCE300076568 /* Views and UI */,
+				3B6490481C9DCCDB00076568 /* Model */,
 				3B64901B1C9DCBB100076568 /* Assets.xcassets */,
 				3B64901D1C9DCBB100076568 /* LaunchScreen.storyboard */,
 				3B6490201C9DCBB100076568 /* Info.plist */,
@@ -138,6 +182,85 @@
 				3B6490361C9DCBB100076568 /* Info.plist */,
 			);
 			path = "#DoUITests";
+			sourceTree = "<group>";
+		};
+		3B6490481C9DCCDB00076568 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490721C9DF59600076568 /* TDMutableModelCollection.h */,
+				3B64904A1C9DCCFE00076568 /* TDTodoItem.h */,
+				3B64904B1C9DCCFE00076568 /* TDTodoItem.m */,
+				3B64904D1C9DCD0F00076568 /* TDTodoSection.h */,
+				3B64904E1C9DCD0F00076568 /* TDTodoSection.m */,
+				3B6490501C9DCD2000076568 /* TDTodoSectionList.h */,
+				3B6490511C9DCD2000076568 /* TDTodoSectionList.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3B6490491C9DCCE300076568 /* Views and UI */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490421C9DCBEA00076568 /* TDRootViewController.h */,
+				3B6490431C9DCBEA00076568 /* TDRootViewController.m */,
+				3B6490731C9DF7F000076568 /* TDItemMarkState.h */,
+				3B6490451C9DCC6000076568 /* TDRootView.h */,
+				3B6490461C9DCC6000076568 /* TDRootView.m */,
+				3B88DF8D1C9E1CE9002C6A58 /* TDTextField.h */,
+				3B88DF8E1C9E1CE9002C6A58 /* TDTextField.m */,
+				3B6490661C9DDB5A00076568 /* Model+UI.h */,
+				3B6490671C9DDB5A00076568 /* Model+UI.m */,
+				3B6490531C9DCD4100076568 /* Collection View UI */,
+			);
+			name = "Views and UI";
+			sourceTree = "<group>";
+		};
+		3B6490531C9DCD4100076568 /* Collection View UI */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490541C9DCD6000076568 /* TDSwipeBackgroundView.h */,
+				3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */,
+				3B88DF901C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.h */,
+				3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */,
+				3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */,
+				3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */,
+				3B6490751C9E02B400076568 /* Items */,
+				3B6490741C9E02AD00076568 /* Sections */,
+			);
+			name = "Collection View UI";
+			sourceTree = "<group>";
+		};
+		3B6490631C9DD80500076568 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490611C9DD78700076568 /* CGGeometry+DoApp.h */,
+				3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		3B6490741C9E02AD00076568 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490771C9E14AC00076568 /* TDSectionDisplay.h */,
+				3B64906F1C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.h */,
+				3B6490701C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m */,
+				3B64905D1C9DCD9500076568 /* TDTodoSectionItemView.h */,
+				3B64905E1C9DCD9500076568 /* TDTodoSectionItemView.m */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
+		3B6490751C9E02B400076568 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490761C9E111200076568 /* TDTodoItemDisplay.h */,
+				3B64906C1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.h */,
+				3B64906D1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m */,
+				3B64905A1C9DCD8B00076568 /* TDTodoItemView.h */,
+				3B64905B1C9DCD8B00076568 /* TDTodoItemView.m */,
+			);
+			name = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +368,6 @@
 			files = (
 				3B64901F1C9DCBB100076568 /* LaunchScreen.storyboard in Resources */,
 				3B64901C1C9DCBB100076568 /* Assets.xcassets in Resources */,
-				3B64901A1C9DCBB100076568 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +392,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B6490171C9DCBB100076568 /* ViewController.m in Sources */,
+				3B64904C1C9DCCFE00076568 /* TDTodoItem.m in Sources */,
+				3B64905C1C9DCD8B00076568 /* TDTodoItemView.m in Sources */,
+				3B64904F1C9DCD0F00076568 /* TDTodoSection.m in Sources */,
 				3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */,
+				3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */,
+				3B6490621C9DD78700076568 /* CGGeometry+DoApp.c in Sources */,
+				3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */,
 				3B6490111C9DCBB100076568 /* main.m in Sources */,
+				3B6490681C9DDB5A00076568 /* Model+UI.m in Sources */,
+				3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */,
+				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
+				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
+				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
+				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
+				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
+				3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */,
+				3B64905F1C9DCD9500076568 /* TDTodoSectionItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +444,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3B6490181C9DCBB100076568 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B6490191C9DCBB100076568 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3B64901D1C9DCBB100076568 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -498,6 +626,7 @@
 				3B64903B1C9DCBB100076568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B64903C1C9DCBB100076568 /* Build configuration list for PBXNativeTarget "#DoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +635,7 @@
 				3B64903E1C9DCBB100076568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B64903F1C9DCBB100076568 /* Build configuration list for PBXNativeTarget "#DoUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +644,7 @@
 				3B6490411C9DCBB100076568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

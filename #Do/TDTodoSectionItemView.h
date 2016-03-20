@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TDTodoSectionItemView.h
 //  #Do
 //
 //  Created by Benjamin Pious on 3/19/16.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDSectionDisplay.h"
 
-@interface ViewController : UIViewController
-
+@interface TDTodoSectionItemView : UIView <TDSectionDisplay>
 
 @end
-
