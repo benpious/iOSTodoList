@@ -21,6 +21,8 @@
 - (void)configureCollectionView:(UICollectionView *)collectionView;
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state;
+- (void)exchangeItemAtIndex:(NSUInteger)index
+            withItemAtIndex:(NSUInteger)otherIndex;
 @property (nonatomic, readonly) NSUInteger numberOfItems;
 @property (nonatomic, readonly) NSArray<id<TDDisplayableItem>> *displayItems;
 

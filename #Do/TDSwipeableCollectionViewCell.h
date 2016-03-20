@@ -17,6 +17,14 @@
 
 - (void)userSwipedOnCell:(TDSwipeableCollectionViewCell *)cell
               withAction:(TDItemMarkState)action;
+/**
+ @param cell the sender
+ @param state the state of the gesture recognizer that recognized the gesture
+ @param position the position in cell's coordinate system
+ */
+- (void)userLongPressedOnCell:(TDSwipeableCollectionViewCell *)cell
+              recognizerState:(UIGestureRecognizerState)state
+                   toPosition:(CGPoint)position;
 
 @end
 

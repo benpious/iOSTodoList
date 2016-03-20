@@ -35,6 +35,11 @@
 
 @implementation TDTodoSection (UI)
 
+- (void)exchangeItemAtIndex:(NSUInteger)index
+            withItemAtIndex:(NSUInteger)otherIndex {
+  /** TODO: implement */
+}
+
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state {
   switch (state) {
@@ -100,6 +105,11 @@
 #pragma mark - Section list
 
 @implementation TDTodoSectionList (UI)
+
+- (void)exchangeItemAtIndex:(NSUInteger)index
+            withItemAtIndex:(NSUInteger)otherIndex {
+  /* TODO: implement */
+}
 
 - (NSArray<id<TDDisplayableItem>> *)displayItems {
   return self.list;

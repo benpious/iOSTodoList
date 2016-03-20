@@ -20,6 +20,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 @property (nonatomic) TDItemMarkState priorSwipeMarkingState;
 @property (nonatomic) BOOL hasRecognizedSwipe;
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
 
 @end
 
@@ -31,6 +32,8 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                         action:@selector(panDetected:)];
     self.contentEffectView = [[TDCellContentView alloc] init];
+    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                             action:@selector(longPressDetected:)];
   }
   return self;
 }
@@ -59,6 +62,14 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
     else {
       [self resetSwipingState];
     }
+  }
+}
+
+- (void)longPressDetected:(UILongPressGestureRecognizer *)press {
+  if ([press isEqual:self.longPressRecognizer]) {
+    [self.swipeActionDelegate userLongPressedOnCell:self
+                                    recognizerState:press.state
+                                         toPosition:[press locationInView:self]];
   }
 }
 
@@ -129,6 +140,14 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
                                action:@selector(panDetected:)];
   _panGestureRecognizer = panGestureRecognizer;
   [self addGestureRecognizer:_panGestureRecognizer];
+}
+
+- (void)setLongPressRecognizer:(UILongPressGestureRecognizer *)longPressRecognizer {
+  [self removeGestureRecognizer:_longPressRecognizer];
+  [_longPressRecognizer removeTarget:self
+                              action:@selector(longPressDetected:)];
+  _longPressRecognizer = longPressRecognizer;
+  [self addGestureRecognizer:_longPressRecognizer];
 }
 
 - (void)setSwipeMarkingState:(TDItemMarkState)swipeMarkingState {

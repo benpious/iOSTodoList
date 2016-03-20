@@ -112,15 +112,46 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
+   moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath
+           toIndexPath:(NSIndexPath *)destinationIndexPath {
+  [self.dataSource exchangeItemAtIndex:sourceIndexPath.item
+                       withItemAtIndex:destinationIndexPath.item];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [self.delegate selectedItemAtIndex:indexPath.item];
 }
+
+#pragma mark - swipe cell delegate methods
 
 - (void)userSwipedOnCell:(TDSwipeableCollectionViewCell *)cell
               withAction:(TDItemMarkState)action {
   NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
   [self.delegate markItemAtIndex:indexPath.item
                        withState:action];
+}
+
+- (void)userLongPressedOnCell:(TDSwipeableCollectionViewCell *)cell
+              recognizerState:(UIGestureRecognizerState)state
+                   toPosition:(CGPoint)position {
+  position = [self.collectionView convertPoint:position
+                                      fromView:cell];
+  NSIndexPath *path = [self.collectionView indexPathForCell:cell];
+  switch (state) {
+    case UIGestureRecognizerStateBegan:
+      [self.collectionView beginInteractiveMovementForItemAtIndexPath:path];
+      break;
+    case UIGestureRecognizerStateChanged:
+      [self.collectionView updateInteractiveMovementTargetPosition:position];
+      break;
+    case UIGestureRecognizerStateCancelled:
+      [self.collectionView cancelInteractiveMovement];
+    case UIGestureRecognizerStateEnded:
+      [self.collectionView endInteractiveMovement];
+    default:
+      break;
+  }
 }
 
 @end

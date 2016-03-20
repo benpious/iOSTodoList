@@ -8,6 +8,7 @@
 
 #import "TDCellContentView.h"
 #import "CGGeometry+DoApp.h"
+#import "CATransaction+TD_Blocks.h"
 
 @interface TDCellContentView ()
 
@@ -32,11 +33,16 @@
 
 - (void)setIsContentPressed:(BOOL)isContentPressed {
   _isContentPressed = isContentPressed;
+  [CATransaction transactionWithDuration:0.3
+                              animations:^{
+                                /* TODO: these don't seem to be animating -- maybe we need an explicit animation... */
+                                self.contentView.layer.shadowOffset = CGSizeZero;
+                                self.contentView.layer.shadowRadius = self.contentView.bounds.size.width * self.shadowAdditionalArea;
+                                self.contentView.layer.shadowColor = self.shadowColorForContentView;
+                                self.contentView.layer.shadowOpacity = self.shadowOpacityForContentView;
+                              }];
   [UIView animateWithDuration:0.3
                    animations:^{
-                     self.contentView.transform = self.transformForContentView;
-                   }
-                   completion:^(BOOL __unused finished) {
                      self.contentView.transform = self.transformForContentView;
                    }];
 }
@@ -58,6 +64,24 @@
 
 - (CGAffineTransform)transformForContentView {
   return self.isContentPressed ? self.pressedTransform : self.normalTransform;
+}
+
+- (CGFloat)shadowOpacityForContentView {
+  return self.isContentPressed ? 1 : 0;
+}
+
+- (CGColorRef)shadowColorForContentView {
+  return (self.isContentPressed ? [UIColor blackColor] : [UIColor clearColor]).CGColor;
+}
+
+- (CGFloat)shadowAdditionalArea {
+  return 0.1f;
+}
+
+- (CGPathRef)shadowPathForContentView {
+  CGFloat scale = 1 + self.shadowAdditionalArea * 2;
+  CGAffineTransform t = CGAffineTransformMakeScale(scale, scale);
+  return self.isContentPressed ? CFAutorelease(CGPathCreateWithRect(self.contentView.bounds, &t)) : NULL;
 }
 
 - (void)setTheme:(TDTheme *)theme {
