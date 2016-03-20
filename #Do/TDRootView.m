@@ -60,13 +60,31 @@
 }
 
 - (void)setDataSource:(id<TDDisplayDataSource>)dataSource {
+  BOOL hadPriorDataSource = !!_dataSource;
   _dataSource = dataSource;
   [_dataSource configureCollectionView:self.collectionView];
-  [self.collectionView reloadData];
+  NSMutableArray *paths = [NSMutableArray array];
+  for (NSUInteger i = 0; i < dataSource.numberOfItems; i++) {
+    [paths addObject:[NSIndexPath indexPathForItem:i
+                                         inSection:0]];
+  }
+  if (hadPriorDataSource) {
+    [self.collectionView performBatchUpdates:^{
+    [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForVisibleItems];
+    [self.collectionView insertItemsAtIndexPaths:paths];
+  }
+                                completion:^(BOOL __unused finished) {
+    
+                                }];
+  }
+  else {
+    [self.collectionView reloadData];
+  }
 }
 
 - (void)setTheme:(TDTheme *)theme {
   _theme = theme;
+  self.backgroundColor = theme.backgroundColor;
   NSArray *cells = self.collectionView.visibleCells;
   for (TDSwipeableCollectionViewCell *cell in cells) {
     cell.theme = _theme;

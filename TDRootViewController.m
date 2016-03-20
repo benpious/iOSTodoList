@@ -32,12 +32,14 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.sections = [[TDTodoSectionList alloc] initWithList:@[[[TDTodoSection alloc] initWithTitle:@"Todo"
-                                                                                           items:@[[[TDTodoItem alloc] initWithTitle:@"Test"]]]]];
+                                                                                           items:@[[[TDTodoItem alloc] initWithTitle:@"Test"],
+                                                                                                   [[TDTodoItem alloc] initWithTitle:@"Test2"]]]]];
   TDTheme *theme = [[TDTheme alloc] init];
   theme.backgroundColor = [UIColor yellowColor];
   theme.textColor = [UIColor whiteColor];
   theme.foregroundColor = [UIColor grayColor];
   theme.deleteColor = [UIColor redColor];
+  theme.doneColor = [UIColor greenColor];
   self.collectionToDisplay = self.sections;
   self.theme = theme;
 }
