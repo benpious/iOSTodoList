@@ -71,12 +71,12 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
 - (void)resetSwipingState {
   self.hasRecognizedSwipe = NO;
-  self.swipeMarkingState = self.priorSwipeMarkingState;
   [UIView animateWithDuration:kTDSwipeAnimationsTimeInterval
                          animations:^{
                            self.swipeOffset = 0;
                          }
                          completion:^(BOOL __unused finished) {
+                           self.swipeMarkingState = self.priorSwipeMarkingState;
                          }];
 }
 
