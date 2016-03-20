@@ -75,12 +75,8 @@
 - (void)setTodoContentView:(TDTodoItemView *)todoContentView {
   [_todoContentView removeFromSuperview];
   _todoContentView = todoContentView;
-  [self addSubview:_todoContentView];
-}
-
-- (void)setSwipeOffset:(CGFloat)swipeOffset {
-  [super setSwipeOffset:swipeOffset];
-  self.todoContentView.transform = CGAffineTransformMakeTranslation(swipeOffset, 0);
+  self.contentEffectView.contentView =_todoContentView;
+  [self setNeedsLayout];
 }
 
 - (BOOL)allowsSwiping {

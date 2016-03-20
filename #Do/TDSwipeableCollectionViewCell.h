@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TDItemMarkState.h"
+#import "TDCellContentView.h"
 
 @class TDSwipeableCollectionViewCell;
 
@@ -23,6 +24,7 @@
 @property (nonatomic, readonly) BOOL allowsSwiping;
 @property (nonatomic) CGFloat swipeOffset;
 @property (nonatomic, weak) id<TDSwipeableCollectionViewCellDelegate> swipeActionDelegate;
+@property (nonatomic) TDCellContentView *contentEffectView;
 
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation;
 

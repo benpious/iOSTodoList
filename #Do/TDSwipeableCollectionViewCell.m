@@ -32,6 +32,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   if (self = [super initWithFrame:frame]) {
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                         action:@selector(panDetected:)];
+    self.contentEffectView = [[TDCellContentView alloc] init];
   }
   return self;
 }
@@ -100,9 +101,17 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   CGPoint center = td_CGRectGetCenter(bounds);
   self.swipeView.bounds = bounds;
   self.swipeView.center = center;
+  self.contentEffectView.bounds = bounds;
+  self.contentEffectView.center = center;
 }
 
 #pragma mark - setters and getters
+
+- (void)setContentEffectView:(TDCellContentView *)contentEffectView {
+  [_contentEffectView removeFromSuperview];
+  _contentEffectView = contentEffectView;
+  [self.contentView addSubview:_contentEffectView];
+}
 
 - (void)setSwipeView:(TDSwipeBackgroundView *)swipeView {
   [_swipeView removeFromSuperview];
@@ -126,6 +135,11 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   }
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+  [super setHighlighted:highlighted];
+  self.contentEffectView.isContentPressed = highlighted;
+}
+
 #pragma mark swiping logic
 
 - (BOOL)allowsSwiping {
@@ -138,6 +152,11 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
 - (CGFloat)maximumVerticalSwipeDistance {
   return self.bounds.size.height / 2;
+}
+
+- (void)setSwipeOffset:(CGFloat)swipeOffset {
+  _swipeOffset = swipeOffset;
+  self.contentEffectView.transform =CGAffineTransformMakeTranslation(_swipeOffset, 0);
 }
 
 @end

@@ -34,6 +34,9 @@
   [UIView animateWithDuration:0.3
                    animations:^{
                      self.contentView.transform = self.transformForContentView;
+                   }
+                   completion:^(BOOL __unused finished) {
+                     self.contentView.transform = self.transformForContentView;
                    }];
 }
 

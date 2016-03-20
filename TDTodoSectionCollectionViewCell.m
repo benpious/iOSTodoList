@@ -47,13 +47,8 @@
 - (void)setSectionContentView:(TDTodoSectionItemView *)sectionContentView {
   [_sectionContentView removeFromSuperview];
   _sectionContentView = sectionContentView;
-  [self.contentView addSubview:_sectionContentView];
+  self.contentEffectView.contentView = _sectionContentView;
   [self setNeedsLayout];
-}
-
-- (void)setSwipeOffset:(CGFloat)swipeOffset {
-  [super setSwipeOffset:swipeOffset];
-  self.sectionContentView.transform = CGAffineTransformMakeTranslation(swipeOffset, 0);
 }
 
 @end
