@@ -22,10 +22,16 @@
 
 @interface TDSwipeableCollectionViewCell : UICollectionViewCell <TDThemeable>
 
-@property (nonatomic, readonly) BOOL allowsSwiping;
-@property (nonatomic) CGFloat swipeOffset;
+#pragma mark - intended for subclasses
 @property (nonatomic, weak) id<TDSwipeableCollectionViewCellDelegate> swipeActionDelegate;
 @property (nonatomic) TDCellContentView *contentEffectView;
+#pragma mark - for subclasses
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation;
+- (BOOL)isTranslationValid:(CGPoint)translation;
+@property (nonatomic, readonly) BOOL hasRecognizedSwipe;
+@property (nonatomic, readonly) CGFloat minimumSwipeDistance;
+@property (nonatomic, readonly) CGFloat maximumVerticalSwipeDistance;
+@property (nonatomic) CGFloat swipeOffset;
+@property (nonatomic, readonly) BOOL allowsSwiping;
 
 @end

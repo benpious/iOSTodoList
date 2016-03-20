@@ -20,9 +20,6 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 @property (nonatomic) TDItemMarkState priorSwipeMarkingState;
 @property (nonatomic) BOOL hasRecognizedSwipe;
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
-#pragma mark - utility
-@property (nonatomic, readonly) CGFloat minimumSwipeDistance;
-@property (nonatomic, readonly) CGFloat maximumVerticalSwipeDistance;
 
 @end
 
@@ -46,11 +43,8 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
     self.priorSwipeMarkingState = self.swipeMarkingState;
     }
     CGPoint translation = [gesture translationInView:self];
-    CGPoint absoluteTranslation = CGPointMake(ABS(translation.x), ABS(translation.y));
-    if (self.hasRecognizedSwipe ||
-        (absoluteTranslation.x > self.minimumSwipeDistance &&
-         absoluteTranslation.y < self.maximumVerticalSwipeDistance)) {
-          self.hasRecognizedSwipe = YES;
+    if ([self isTranslationValid:translation]) {
+      self.hasRecognizedSwipe = YES;
       self.swipeMarkingState = [self markStateForTranslation:translation.x];
       self.swipeOffset = translation.x;
       if (gesture.state == UIGestureRecognizerStateEnded) {
@@ -66,6 +60,13 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
       [self resetSwipingState];
     }
   }
+}
+
+- (BOOL)isTranslationValid:(CGPoint)translation {
+  CGPoint absoluteTranslation = CGPointMake(ABS(translation.x), ABS(translation.y));
+  return self.hasRecognizedSwipe ||
+  (absoluteTranslation.x > self.minimumSwipeDistance &&
+   absoluteTranslation.y < self.maximumVerticalSwipeDistance);
 }
 
 - (void)resetSwipingState {
@@ -165,7 +166,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
 - (void)setSwipeOffset:(CGFloat)swipeOffset {
   _swipeOffset = swipeOffset;
-  self.contentEffectView.transform =CGAffineTransformMakeTranslation(_swipeOffset, 0);
+  self.contentEffectView.transform = CGAffineTransformMakeTranslation(_swipeOffset, 0);
 }
 
 @end

@@ -51,4 +51,10 @@
   [self setNeedsLayout];
 }
 
+- (BOOL)isTranslationValid:(CGPoint)translation {
+  return translation.x > 0 &&
+  translation.x > self.minimumSwipeDistance &&
+  translation.y < self.maximumVerticalSwipeDistance;
+}
+
 @end
