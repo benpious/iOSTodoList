@@ -30,6 +30,7 @@
 		3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF911C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m */; };
 		3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */; };
 		3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */; };
+		3BBA11531C9F11C800E7C688 /* CATransaction+TD_Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCellContentView.m; sourceTree = "<group>"; };
 		3BBA114E1C9F0F1C00E7C688 /* TDCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCollectionViewLayout.h; sourceTree = "<group>"; };
 		3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCollectionViewLayout.m; sourceTree = "<group>"; };
+		3BBA11511C9F11C800E7C688 /* CATransaction+TD_Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+TD_Blocks.h"; sourceTree = "<group>"; };
+		3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+TD_Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,8 @@
 			children = (
 				3B6490611C9DD78700076568 /* CGGeometry+DoApp.h */,
 				3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */,
+				3BBA11511C9F11C800E7C688 /* CATransaction+TD_Blocks.h */,
+				3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
 				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
 				3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */,
+				3BBA11531C9F11C800E7C688 /* CATransaction+TD_Blocks.m in Sources */,
 				3B64905F1C9DCD9500076568 /* TDTodoSectionItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
