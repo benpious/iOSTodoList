@@ -10,11 +10,4 @@
 
 @implementation TDCollectionViewLayout
 
-- (CGSize)collectionViewContentSize {
-  CGSize size = [super collectionViewContentSize];
-  CGFloat arbitraryAddition = 20;
-  size.height =  MAX((self.collectionView.bounds.size.height + arbitraryAddition), size.height);
-  return size;
-}
-
 @end
