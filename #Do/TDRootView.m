@@ -98,7 +98,7 @@
   return self.dataSource.numberOfItems;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)__unused collectionView {
   return 1;
 }
 
@@ -111,14 +111,14 @@
   return swipeCell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)__unused collectionView
    moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath
            toIndexPath:(NSIndexPath *)destinationIndexPath {
   [self.dataSource exchangeItemAtIndex:sourceIndexPath.item
                        withItemAtIndex:destinationIndexPath.item];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
+- (void)collectionView:(UICollectionView *)__unused collectionView
 didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [self.delegate selectedItemAtIndex:indexPath.item];
 }
@@ -130,6 +130,12 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
   [self.delegate markItemAtIndex:indexPath.item
                        withState:action];
+  if (action == TDItemMarkStateDeleted) {
+    [self.collectionView performBatchUpdates:^{
+      [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    }
+                                  completion:nil];
+  }
 }
 
 - (void)userLongPressedOnCell:(TDSwipeableCollectionViewCell *)cell

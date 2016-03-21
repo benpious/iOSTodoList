@@ -85,8 +85,8 @@
   return @"";
 }
 
-- (void)panDetectedWithStartPoint:(CGPoint)start
-                     currentPoint:(CGPoint)current {
+- (void)panDetectedWithStartPoint:(CGPoint)__unused start
+                     currentPoint:(CGPoint)__unused current {
   
 }
 

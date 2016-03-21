@@ -8,16 +8,17 @@
 
 #import "TDRootViewController.h"
 #import "TDRootView.h"
-#import "TDTodoSectionList.h"
+#import "TDPersistentStore.h"
 #import "TDMutableModelCollection.h"
 #import "TDTheme.h"
 
 @interface TDRootViewController () <TDRootViewDelegate, TDThemeable>
 
 @property (nonatomic, readonly) TDRootView *rootView;
-@property (nonatomic) TDTodoSectionList *sections;
-@property (nonatomic) TDTodoSection *currentSection;
-@property (nonatomic) id<TDDisplayDataSource> collectionToDisplay;
+@property (nonatomic) TDPersistentStore *model;
+@property (nonatomic) id<TDTodoSectionList, TDDisplayDataSource, TDMutableModelCollection> sections;
+@property (nonatomic) id<TDTodoSection, TDDisplayDataSource, TDMutableModelCollection> currentSection;
+@property (nonatomic) id<TDDisplayDataSource, TDMutableModelCollection> collectionToDisplay;
 @property (nonatomic, readonly) BOOL isShowingASection;
 
 @end
@@ -31,9 +32,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.sections = [[TDTodoSectionList alloc] initWithList:@[[[TDTodoSection alloc] initWithTitle:@"Todo"
-                                                                                           items:@[[[TDTodoItem alloc] initWithTitle:@"Test"],
-                                                                                                   [[TDTodoItem alloc] initWithTitle:@"Test2"]]]]];
+  self.model = [[TDPersistentStore alloc] initWithBuiltinStore];
+  self.sections = self.model.lists;
   TDTheme *theme = [[TDTheme alloc] init];
   theme.backgroundColor = [UIColor yellowColor];
   theme.textColor = [UIColor whiteColor];
@@ -68,7 +68,7 @@
 
 - (void)selectedItemAtIndex:(NSUInteger)index {
   if (!self.isShowingASection) {
-    self.currentSection = self.sections.list[index];
+    self.currentSection = (id)self.sections.list[index];
     self.collectionToDisplay = self.currentSection;
   }
 }
@@ -80,7 +80,7 @@
 }
 
 - (void)addNewItem {
-  
+  [self.collectionToDisplay pushNewItem];
 }
 
 @end

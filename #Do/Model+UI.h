@@ -7,24 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TDTodoSection.h"
-#import "TDTodoItem.h"
-#import "TDTodoSectionList.h"
+#import "TDManagedTodoSection.h"
+#import "TDManagedTodoItem.h"
+#import "TDManagedTodoLists.h"
 #import "TDSwipeableCollectionViewCell.h"
+
+#pragma mark - forward declarations
 
 @protocol TDDisplayableItem;
 
-@protocol TDDisplayDataSource <NSObject>
+#pragma mark - protocols
+
+@protocol TDDisplayDataSource <TDMutableModelCollection>
 
 - (TDSwipeableCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                           cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
+                           cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)configureCollectionView:(UICollectionView *)collectionView;
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state;
-- (void)exchangeItemAtIndex:(NSUInteger)index
-            withItemAtIndex:(NSUInteger)otherIndex;
 @property (nonatomic, readonly) NSUInteger numberOfItems;
-@property (nonatomic, readonly) NSArray<id<TDDisplayableItem>> *displayItems;
+@property (nonatomic, readonly) NSOrderedSet<id<TDDisplayableItem>> *displayItems;
 
 @end
 
@@ -34,14 +36,16 @@
 
 @end
 
-@interface TDTodoItem (UI) <TDDisplayableItem>
+#pragma mark - categories
+
+@interface TDManagedTodoItem (UI) <TDDisplayableItem>
 
 @end
 
-@interface TDTodoSection (UI) <TDDisplayableItem, TDDisplayDataSource>
+@interface TDManagedTodoSection (UI) <TDDisplayableItem, TDDisplayDataSource>
 
 @end
 
-@interface TDTodoSectionList (UI) <TDDisplayDataSource>
+@interface TDManagedTodoLists (UI) <TDDisplayDataSource>
 
 @end

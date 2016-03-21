@@ -54,7 +54,7 @@
 }
 
 - (CGAffineTransform)pressedTransform {
-  CGFloat scale = 0.8;
+  CGFloat scale = 0.8f;
   return CGAffineTransformMakeScale(scale, scale);
 }
 

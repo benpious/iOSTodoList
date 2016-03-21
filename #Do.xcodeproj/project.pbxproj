@@ -16,9 +16,6 @@
 		3B6490351C9DCBB100076568 /* _DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490341C9DCBB100076568 /* _DoUITests.m */; };
 		3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490431C9DCBEA00076568 /* TDRootViewController.m */; };
 		3B6490471C9DCC6000076568 /* TDRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490461C9DCC6000076568 /* TDRootView.m */; };
-		3B64904C1C9DCCFE00076568 /* TDTodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64904B1C9DCCFE00076568 /* TDTodoItem.m */; };
-		3B64904F1C9DCD0F00076568 /* TDTodoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64904E1C9DCD0F00076568 /* TDTodoSection.m */; };
-		3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490511C9DCD2000076568 /* TDTodoSectionList.m */; };
 		3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */; };
 		3B64905C1C9DCD8B00076568 /* TDTodoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64905B1C9DCD8B00076568 /* TDTodoItemView.m */; };
 		3B64905F1C9DCD9500076568 /* TDTodoSectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B64905E1C9DCD9500076568 /* TDTodoSectionItemView.m */; };
@@ -31,6 +28,12 @@
 		3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */; };
 		3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */; };
 		3BBA11531C9F11C800E7C688 /* CATransaction+TD_Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */; };
+		3BBA11561C9F2C1600E7C688 /* TDPersistentStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11551C9F2C1600E7C688 /* TDPersistentStore.m */; };
+		3BBA115C1C9F48DF00E7C688 /* TDManagedTodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA115B1C9F48DF00E7C688 /* TDManagedTodoItem.m */; };
+		3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA115E1C9F491000E7C688 /* TDManagedTodoSection.m */; };
+		3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */; };
+		3BBA11691C9F665500E7C688 /* TDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11681C9F665500E7C688 /* TDResult.m */; };
+		3BBA116C1C9F752E00E7C688 /* TDSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116B1C9F752E00E7C688 /* TDSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +73,6 @@
 		3B6490431C9DCBEA00076568 /* TDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRootViewController.m; path = ../TDRootViewController.m; sourceTree = "<group>"; };
 		3B6490451C9DCC6000076568 /* TDRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRootView.h; sourceTree = "<group>"; };
 		3B6490461C9DCC6000076568 /* TDRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRootView.m; sourceTree = "<group>"; };
-		3B64904A1C9DCCFE00076568 /* TDTodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItem.h; sourceTree = "<group>"; };
-		3B64904B1C9DCCFE00076568 /* TDTodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoItem.m; sourceTree = "<group>"; };
-		3B64904D1C9DCD0F00076568 /* TDTodoSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoSection.h; sourceTree = "<group>"; };
-		3B64904E1C9DCD0F00076568 /* TDTodoSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoSection.m; sourceTree = "<group>"; };
-		3B6490501C9DCD2000076568 /* TDTodoSectionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoSectionList.h; sourceTree = "<group>"; };
-		3B6490511C9DCD2000076568 /* TDTodoSectionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoSectionList.m; sourceTree = "<group>"; };
 		3B6490541C9DCD6000076568 /* TDSwipeBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSwipeBackgroundView.h; sourceTree = "<group>"; };
 		3B6490551C9DCD6000076568 /* TDSwipeBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSwipeBackgroundView.m; sourceTree = "<group>"; };
 		3B64905A1C9DCD8B00076568 /* TDTodoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItemView.h; sourceTree = "<group>"; };
@@ -104,6 +101,19 @@
 		3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCollectionViewLayout.m; sourceTree = "<group>"; };
 		3BBA11511C9F11C800E7C688 /* CATransaction+TD_Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+TD_Blocks.h"; sourceTree = "<group>"; };
 		3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+TD_Blocks.m"; sourceTree = "<group>"; };
+		3BBA11541C9F2C1600E7C688 /* TDPersistentStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPersistentStore.h; sourceTree = "<group>"; };
+		3BBA11551C9F2C1600E7C688 /* TDPersistentStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPersistentStore.m; sourceTree = "<group>"; };
+		3BBA11591C9F47D600E7C688 /* ModelProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelProtocols.h; sourceTree = "<group>"; };
+		3BBA115A1C9F48DF00E7C688 /* TDManagedTodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDManagedTodoItem.h; sourceTree = "<group>"; };
+		3BBA115B1C9F48DF00E7C688 /* TDManagedTodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDManagedTodoItem.m; sourceTree = "<group>"; };
+		3BBA115D1C9F491000E7C688 /* TDManagedTodoSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDManagedTodoSection.h; sourceTree = "<group>"; };
+		3BBA115E1C9F491000E7C688 /* TDManagedTodoSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDManagedTodoSection.m; sourceTree = "<group>"; };
+		3BBA11631C9F5DCA00E7C688 /* TDManagedTodoLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDManagedTodoLists.h; sourceTree = "<group>"; };
+		3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDManagedTodoLists.m; sourceTree = "<group>"; };
+		3BBA11671C9F665500E7C688 /* TDResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDResult.h; sourceTree = "<group>"; };
+		3BBA11681C9F665500E7C688 /* TDResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDResult.m; sourceTree = "<group>"; };
+		3BBA116A1C9F752E00E7C688 /* TDSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSettings.h; sourceTree = "<group>"; };
+		3BBA116B1C9F752E00E7C688 /* TDSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,13 +216,10 @@
 		3B6490481C9DCCDB00076568 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B6490721C9DF59600076568 /* TDMutableModelCollection.h */,
-				3B64904A1C9DCCFE00076568 /* TDTodoItem.h */,
-				3B64904B1C9DCCFE00076568 /* TDTodoItem.m */,
-				3B64904D1C9DCD0F00076568 /* TDTodoSection.h */,
-				3B64904E1C9DCD0F00076568 /* TDTodoSection.m */,
-				3B6490501C9DCD2000076568 /* TDTodoSectionList.h */,
-				3B6490511C9DCD2000076568 /* TDTodoSectionList.m */,
+				3BBA116A1C9F752E00E7C688 /* TDSettings.h */,
+				3BBA116B1C9F752E00E7C688 /* TDSettings.m */,
+				3BBA11581C9F47BD00E7C688 /* Protocols */,
+				3BBA11571C9F47A300E7C688 /* Persistence */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -258,6 +265,8 @@
 				3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */,
 				3BBA11511C9F11C800E7C688 /* CATransaction+TD_Blocks.h */,
 				3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */,
+				3BBA11671C9F665500E7C688 /* TDResult.h */,
+				3BBA11681C9F665500E7C688 /* TDResult.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -284,6 +293,38 @@
 				3B64905B1C9DCD8B00076568 /* TDTodoItemView.m */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		3BBA11571C9F47A300E7C688 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				3BBA11661C9F5FB600E7C688 /* Managed Objects */,
+				3BBA11541C9F2C1600E7C688 /* TDPersistentStore.h */,
+				3BBA11551C9F2C1600E7C688 /* TDPersistentStore.m */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		3BBA11581C9F47BD00E7C688 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3B6490721C9DF59600076568 /* TDMutableModelCollection.h */,
+				3BBA11591C9F47D600E7C688 /* ModelProtocols.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		3BBA11661C9F5FB600E7C688 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3BBA115A1C9F48DF00E7C688 /* TDManagedTodoItem.h */,
+				3BBA115B1C9F48DF00E7C688 /* TDManagedTodoItem.m */,
+				3BBA115D1C9F491000E7C688 /* TDManagedTodoSection.h */,
+				3BBA115E1C9F491000E7C688 /* TDManagedTodoSection.m */,
+				3BBA11631C9F5DCA00E7C688 /* TDManagedTodoLists.h */,
+				3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */,
+			);
+			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,24 +456,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B64904C1C9DCCFE00076568 /* TDTodoItem.m in Sources */,
+				3BBA11561C9F2C1600E7C688 /* TDPersistentStore.m in Sources */,
 				3B64905C1C9DCD8B00076568 /* TDTodoItemView.m in Sources */,
-				3B64904F1C9DCD0F00076568 /* TDTodoSection.m in Sources */,
 				3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */,
 				3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */,
 				3B6490621C9DD78700076568 /* CGGeometry+DoApp.c in Sources */,
 				3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */,
+				3BBA116C1C9F752E00E7C688 /* TDSettings.m in Sources */,
 				3B6490111C9DCBB100076568 /* main.m in Sources */,
 				3B6490681C9DDB5A00076568 /* Model+UI.m in Sources */,
 				3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */,
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
+				3BBA115C1C9F48DF00E7C688 /* TDManagedTodoItem.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
+				3BBA11691C9F665500E7C688 /* TDResult.m in Sources */,
+				3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */,
 				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
 				3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */,
+				3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */,
 				3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */,
 				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
 				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
-				3B6490521C9DCD2000076568 /* TDTodoSectionList.m in Sources */,
 				3BBA11531C9F11C800E7C688 /* CATransaction+TD_Blocks.m in Sources */,
 				3B64905F1C9DCD9500076568 /* TDTodoSectionItemView.m in Sources */,
 			);
@@ -496,6 +540,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -512,10 +557,14 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -540,6 +589,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -550,10 +600,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -567,6 +621,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "#Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";
@@ -578,6 +637,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "#Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";

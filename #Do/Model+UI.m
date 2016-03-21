@@ -12,7 +12,7 @@
 
 #pragma mark - Todo Item
 
-@implementation TDTodoItem (UI)
+@implementation TDManagedTodoItem (UI)
 
 #pragma mark - collection view class
 
@@ -33,12 +33,7 @@
 
 #pragma mark - section Item
 
-@implementation TDTodoSection (UI)
-
-- (void)exchangeItemAtIndex:(NSUInteger)index
-            withItemAtIndex:(NSUInteger)otherIndex {
-  /** TODO: implement */
-}
+@implementation TDManagedTodoSection (UI)
 
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state {
@@ -48,14 +43,15 @@
       break;
     case TDItemMarkStateDone:
       self.todoItems[index].isDone = YES;
+      break;
     case TDItemMarkStateDeleted:
-      /* TODO: handle this case */
+      [self removeItemAtIndex:index];
       break;
   }
 }
 
-- (NSArray<id<TDDisplayableItem>> *)displayItems {
-  return self.todoItems;
+- (NSOrderedSet<id<TDDisplayableItem>> *)displayItems {
+  return (id)self.todoItems;
 }
 
 - (TDSwipeableCollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -90,7 +86,7 @@
 
 - (void)decorateCollectionViewCell:(UICollectionViewCell *)cell
                          indexPath:(NSIndexPath *)indexPath {
-  [self.todoItems[indexPath.item] decorateCollectionViewCell:cell];
+  [(id)self.todoItems[indexPath.item] decorateCollectionViewCell:cell];
 }
 
 - (void)decorateCollectionViewCell:(UICollectionViewCell *)cell {
@@ -104,22 +100,17 @@
 
 #pragma mark - Section list
 
-@implementation TDTodoSectionList (UI)
+@implementation TDManagedTodoLists (UI)
 
-- (void)exchangeItemAtIndex:(NSUInteger)index
-            withItemAtIndex:(NSUInteger)otherIndex {
-  /* TODO: implement */
-}
-
-- (NSArray<id<TDDisplayableItem>> *)displayItems {
-  return self.list;
+- (NSOrderedSet<id<TDDisplayableItem>> *)displayItems {
+  return (id)self.list;
 }
 
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state {
   switch (state) {
     case TDItemMarkStateDeleted:
-      /* TODO: handle this case */
+      [self removeItemAtIndex:index];
       break;
     default: {
       @throw [NSException exceptionWithName:@"Invalid Todo Action"
@@ -158,7 +149,7 @@
 
 - (void)decorateCollectionViewCell:(UICollectionViewCell *)cell
                          indexPath:(NSIndexPath *)indexPath {
-  [self.list[indexPath.item] decorateCollectionViewCell:cell];
+  [(id)self.list[indexPath.item] decorateCollectionViewCell:cell];
 }
 
 @end
