@@ -10,6 +10,7 @@
 #import "TDManagedTodoItem.h"
 #import "TDManagedTodoSection.h"
 #import "TDManagedTodoLists.h"
+#import "NSManagedObjectModel+KCOrderedAccessorFix.h"
 #import <CoreData/CoreData.h>
 
 #pragma mark - Extension
@@ -58,6 +59,7 @@
 
 - (void)setUpCoreData {
   self.model = [self createManagedObjectModel];
+  [self.model kc_generateOrderedSetAccessors];
   NSArray *coordinatorAndStore = [self createPersistentStoreWithManagedObjectModel:self.model];
   self.coordinator = coordinatorAndStore[0];
   self.store = coordinatorAndStore[1];

@@ -34,6 +34,7 @@
 		3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */; };
 		3BBA11691C9F665500E7C688 /* TDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11681C9F665500E7C688 /* TDResult.m */; };
 		3BBA116C1C9F752E00E7C688 /* TDSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116B1C9F752E00E7C688 /* TDSettings.m */; };
+		3BBA11701C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		3BBA11681C9F665500E7C688 /* TDResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDResult.m; sourceTree = "<group>"; };
 		3BBA116A1C9F752E00E7C688 /* TDSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSettings.h; sourceTree = "<group>"; };
 		3BBA116B1C9F752E00E7C688 /* TDSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettings.m; sourceTree = "<group>"; };
+		3BBA116E1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectModel+KCOrderedAccessorFix.h"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = SOURCE_ROOT; };
+		3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectModel+KCOrderedAccessorFix.m"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +304,7 @@
 				3BBA11661C9F5FB600E7C688 /* Managed Objects */,
 				3BBA11541C9F2C1600E7C688 /* TDPersistentStore.h */,
 				3BBA11551C9F2C1600E7C688 /* TDPersistentStore.m */,
+				3BBA116D1C9F8E5C00E7C688 /* Ordered Set Many To Many Fix */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -325,6 +329,15 @@
 				3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */,
 			);
 			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		3BBA116D1C9F8E5C00E7C688 /* Ordered Set Many To Many Fix */ = {
+			isa = PBXGroup;
+			children = (
+				3BBA116E1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
+				3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
+			);
+			name = "Ordered Set Many To Many Fix";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +481,7 @@
 				3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */,
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
 				3BBA115C1C9F48DF00E7C688 /* TDManagedTodoItem.m in Sources */,
+				3BBA11701C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3BBA11691C9F665500E7C688 /* TDResult.m in Sources */,
 				3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */,
