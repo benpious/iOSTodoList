@@ -13,10 +13,11 @@
 @dynamic title, todoItems;
 
 - (void)pushNewItem {
-  NSEntityDescription *entityDescription = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel.entitiesByName[NSStringFromClass([TDManagedTodoItem class])];
+  NSEntityDescription *entityDescription = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel.entitiesByName[@"TodoItem"];
   TDManagedTodoItem *item = [[TDManagedTodoItem alloc] initWithEntity:entityDescription
                                        insertIntoManagedObjectContext:self.managedObjectContext];
-  [item addSectionsObject:self];
+  [self insertObject:item
+  inTodoItemsAtIndex:0];
 }
 
 - (id)objectAtIndexSubscript:(NSUInteger)idx {
@@ -24,7 +25,7 @@
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index {
-  [self removeTodoItemsObject:self.todoItems[index]]; /* for some reason removeObjectFromTodoItemsAtIndex: isn't recognized by Core Data as a function it needs to generate at runtime */
+  [self removeTodoItemsObject:self.todoItems[index]];
 }
 
 - (void)setObject:(id)obj

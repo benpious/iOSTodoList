@@ -65,7 +65,7 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
 }
 
 - (BOOL)pullDownViewIsFullyVisible {
-  return ABS(self.pullDownView.frame.origin.y) < 0.05f;
+  return self.pullDownView.frame.origin.y < 0;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)__unused gestureRecognizer

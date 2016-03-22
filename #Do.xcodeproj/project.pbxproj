@@ -37,8 +37,8 @@
 		3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11641C9F5DCA00E7C688 /* TDManagedTodoLists.m */; };
 		3BBA11691C9F665500E7C688 /* TDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11681C9F665500E7C688 /* TDResult.m */; };
 		3BBA116C1C9F752E00E7C688 /* TDSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116B1C9F752E00E7C688 /* TDSettings.m */; };
-		3BBA11701C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
 		3BBA11731C9F923B00E7C688 /* TDPullDownOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */; };
+		3BDC50191CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDC50181CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,10 +158,10 @@
 		3BBA11681C9F665500E7C688 /* TDResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDResult.m; sourceTree = "<group>"; };
 		3BBA116A1C9F752E00E7C688 /* TDSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSettings.h; sourceTree = "<group>"; };
 		3BBA116B1C9F752E00E7C688 /* TDSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettings.m; sourceTree = "<group>"; };
-		3BBA116E1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectModel+KCOrderedAccessorFix.h"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = SOURCE_ROOT; };
-		3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectModel+KCOrderedAccessorFix.m"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = SOURCE_ROOT; };
 		3BBA11711C9F923B00E7C688 /* TDPullDownOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPullDownOptionsView.h; sourceTree = "<group>"; };
 		3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPullDownOptionsView.m; sourceTree = "<group>"; };
+		3BDC50171CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectModel+KCOrderedAccessorFix.h"; path = "submodules/KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = SOURCE_ROOT; };
+		3BDC50181CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectModel+KCOrderedAccessorFix.m"; path = "submodules/KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,8 +403,8 @@
 		3BBA116D1C9F8E5C00E7C688 /* Ordered Set Many To Many Fix */ = {
 			isa = PBXGroup;
 			children = (
-				3BBA116E1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
-				3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
+				3BDC50171CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
+				3BDC50181CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
 			);
 			name = "Ordered Set Many To Many Fix";
 			sourceTree = "<group>";
@@ -577,13 +577,13 @@
 				3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */,
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
 				3BBA115C1C9F48DF00E7C688 /* TDManagedTodoItem.m in Sources */,
-				3BBA11701C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3BBA11691C9F665500E7C688 /* TDResult.m in Sources */,
 				3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */,
 				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
 				3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */,
 				3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */,
+				3BDC50191CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
 				3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */,
 				3B6490561C9DCD6000076568 /* TDSwipeBackgroundView.m in Sources */,
 				3B6490441C9DCBEA00076568 /* TDRootViewController.m in Sources */,
@@ -747,6 +747,7 @@
 					"$(SOURCE_ROOT)/submodules/ObjectiveCUtilities",
 				);
 				INFOPLIST_FILE = "#Do/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -768,6 +769,7 @@
 					"$(SOURCE_ROOT)/submodules/ObjectiveCUtilities",
 				);
 				INFOPLIST_FILE = "#Do/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -39,7 +39,7 @@
                                 self.contentView.layer.shadowOffset = CGSizeZero;
                                 self.contentView.layer.shadowRadius = self.contentView.bounds.size.width * self.shadowAdditionalArea;
                                 self.contentView.layer.shadowColor = self.shadowColorForContentView;
-                                self.contentView.layer.shadowOpacity = self.shadowOpacityForContentView;
+                                self.contentView.layer.shadowOpacity = (float)self.shadowOpacityForContentView;
                               }];
   [UIView animateWithDuration:0.3
                    animations:^{

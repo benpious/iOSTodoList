@@ -83,4 +83,20 @@
   [self.collectionToDisplay pushNewItem];
 }
 
+- (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
+  switch (selection) {
+    case TDPullDownSelectionAddNew:
+      [self.currentSection pushNewItem];
+      break;
+    case TDPullDownSelectionGoBack:
+      if (![self.collectionToDisplay isEqual:self.sections]) {
+        self.currentSection = nil;
+        self.collectionToDisplay = self.sections;
+      }
+      break;
+    default:
+      break;
+  }
+}
+
 @end

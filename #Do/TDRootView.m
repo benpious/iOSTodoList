@@ -178,6 +178,10 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
 - (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
   [self.delegate userSelectedPullDownOption:selection];
+  if (selection == TDPullDownSelectionAddNew) {
+    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0
+                                                                       inSection:0]]];
+  }
 }
 
 @end
