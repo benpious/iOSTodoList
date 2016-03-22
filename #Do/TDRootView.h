@@ -10,13 +10,13 @@
 #import "Model+UI.h"
 #import "TDItemMarkState.h"
 #import "TDTheme.h"
+#import "TDPullDownResponder.h"
 
-@protocol TDRootViewDelegate <NSObject>
+@protocol TDRootViewDelegate <TDPullDownResponder>
 
 - (void)selectedItemAtIndex:(NSUInteger)index;
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state;
-- (void)addNewItem;
 
 @end
 

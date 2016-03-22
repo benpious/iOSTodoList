@@ -10,8 +10,10 @@
 #import "CGGeometry+DoApp.h"
 #import "TDSwipeableCollectionViewCell.h"
 #import "TDCollectionViewLayout.h"
+#import "TDPullDownOptionsView.h"
+#import "TDTodoCollectionView.h"
 
-@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate>
+@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate, TDPullDownResponder>
 
 @property (nonatomic) UICollectionView *collectionView;
 
@@ -29,11 +31,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
-    UICollectionViewFlowLayout *flowLayout = [[TDCollectionViewLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:frame
-                                             collectionViewLayout:flowLayout];
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    self.collectionView.alwaysBounceVertical = YES;
+    self.collectionView = [[TDTodoCollectionView alloc] initWithPullDownResponder:self];
   }
   return self;
 }
@@ -44,11 +42,15 @@
   self.collectionView.bounds = bounds;
   self.collectionView.center = td_CGRectGetCenter(bounds);
   CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+  CGFloat oldOffset = self.collectionView.contentInset.top;
   self.collectionView.contentInset = UIEdgeInsetsMake(statusBarHeight, 0, 0, 0);
+  self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x,
+                                                  self.collectionView.contentOffset.y - (oldOffset - statusBarHeight));
   UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
   CGFloat visibleItems = 8;
   flowLayout.itemSize = CGSizeMake(bounds.size.width, bounds.size.height / visibleItems);
 }
+
 
 - (void)setCollectionView:(UICollectionView *)collectionView {
   [_collectionView removeFromSuperview];
@@ -124,6 +126,17 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [self.delegate selectedItemAtIndex:indexPath.item];
 }
 
+#pragma mark - supplementary view methods
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+  TDPullDownOptionsView *pullDownView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                           withReuseIdentifier:NSStringFromClass([TDPullDownOptionsView class])
+                                                                                  forIndexPath:indexPath];
+  return pullDownView;
+}
+
 #pragma mark - swipe cell delegate methods
 
 - (void)userSwipedOnCell:(TDSwipeableCollectionViewCell *)cell
@@ -159,6 +172,12 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     default:
       break;
   }
+}
+
+#pragma mark - pull down delegate
+
+- (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
+  [self.delegate userSelectedPullDownOption:selection];
 }
 
 @end

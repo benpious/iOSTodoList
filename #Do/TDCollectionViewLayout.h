@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const kPullDownHeaderElementKind;
+
 @interface TDCollectionViewLayout : UICollectionViewFlowLayout
 
 @end

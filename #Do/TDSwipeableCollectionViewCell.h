@@ -30,7 +30,7 @@
 
 @interface TDSwipeableCollectionViewCell : UICollectionViewCell <TDThemeable>
 
-#pragma mark - intended for subclasses
+#pragma mark - public
 @property (nonatomic, weak) id<TDSwipeableCollectionViewCellDelegate> swipeActionDelegate;
 @property (nonatomic) TDCellContentView *contentEffectView;
 #pragma mark - for subclasses

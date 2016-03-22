@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1C03891CA10820004B4286 /* FleksyUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C03771CA105C4004B4286 /* FleksyUtilities.framework */; };
+		3B1C038A1CA10820004B4286 /* FleksyUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C03771CA105C4004B4286 /* FleksyUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B1C03901CA115D6004B4286 /* TDTodoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C038F1CA115D6004B4286 /* TDTodoCollectionView.m */; };
 		3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C2F261C9E5E6E00B8901D /* TDTheme.m */; };
 		3B6490111C9DCBB100076568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490101C9DCBB100076568 /* main.m */; };
 		3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490131C9DCBB100076568 /* AppDelegate.m */; };
@@ -35,9 +38,31 @@
 		3BBA11691C9F665500E7C688 /* TDResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11681C9F665500E7C688 /* TDResult.m */; };
 		3BBA116C1C9F752E00E7C688 /* TDSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116B1C9F752E00E7C688 /* TDSettings.m */; };
 		3BBA11701C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
+		3BBA11731C9F923B00E7C688 /* TDPullDownOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B1C03761CA105C4004B4286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B6AE7401C99FC99002DEC2C;
+			remoteInfo = FleksyUtilities;
+		};
+		3B1C03781CA105C4004B4286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B6AE74A1C99FC99002DEC2C;
+			remoteInfo = FleksyUtilitiesTests;
+		};
+		3B1C038B1CA10820004B4286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B6AE73F1C99FC99002DEC2C;
+			remoteInfo = FleksyUtilities;
+		};
 		3B6490261C9DCBB100076568 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B6490041C9DCBB100076568 /* Project object */;
@@ -54,7 +79,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3B1C038D1CA10820004B4286 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B1C038A1CA10820004B4286 /* FleksyUtilities.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FleksyUtilities.xcodeproj; path = submodules/ObjectiveCUtilities/FleksyUtilities.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3B1C038E1CA115D6004B4286 /* TDTodoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoCollectionView.h; sourceTree = "<group>"; };
+		3B1C038F1CA115D6004B4286 /* TDTodoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTodoCollectionView.m; sourceTree = "<group>"; };
+		3B1C03921CA11937004B4286 /* TDPullDownResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPullDownResponder.h; sourceTree = "<group>"; };
 		3B4C2F251C9E5E6E00B8901D /* TDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTheme.h; sourceTree = "<group>"; };
 		3B4C2F261C9E5E6E00B8901D /* TDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTheme.m; sourceTree = "<group>"; };
 		3B64900C1C9DCBB100076568 /* #Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +160,8 @@
 		3BBA116B1C9F752E00E7C688 /* TDSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettings.m; sourceTree = "<group>"; };
 		3BBA116E1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectModel+KCOrderedAccessorFix.h"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = SOURCE_ROOT; };
 		3BBA116F1C9F8E7600E7C688 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectModel+KCOrderedAccessorFix.m"; path = "submodules/NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = SOURCE_ROOT; };
+		3BBA11711C9F923B00E7C688 /* TDPullDownOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPullDownOptionsView.h; sourceTree = "<group>"; };
+		3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPullDownOptionsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1C03891CA10820004B4286 /* FleksyUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +190,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1C03721CA105C4004B4286 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B1C03771CA105C4004B4286 /* FleksyUtilities.framework */,
+				3B1C03791CA105C4004B4286 /* FleksyUtilitiesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B1C03911CA1190F004B4286 /* Pull Down Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				3BBA11711C9F923B00E7C688 /* TDPullDownOptionsView.h */,
+				3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */,
+				3B1C03921CA11937004B4286 /* TDPullDownResponder.h */,
+			);
+			name = "Pull Down Gesture";
+			sourceTree = "<group>";
+		};
 		3B4C2F241C9E5E5F00B8901D /* Theming */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +243,6 @@
 			children = (
 				3B6490121C9DCBB100076568 /* AppDelegate.h */,
 				3B6490131C9DCBB100076568 /* AppDelegate.m */,
-				3B4C2F241C9E5E5F00B8901D /* Theming */,
 				3B6490631C9DD80500076568 /* Utilities */,
 				3B6490491C9DCCE300076568 /* Views and UI */,
 				3B6490481C9DCCDB00076568 /* Model */,
@@ -230,11 +294,14 @@
 		3B6490491C9DCCE300076568 /* Views and UI */ = {
 			isa = PBXGroup;
 			children = (
+				3B4C2F241C9E5E5F00B8901D /* Theming */,
 				3B6490421C9DCBEA00076568 /* TDRootViewController.h */,
 				3B6490431C9DCBEA00076568 /* TDRootViewController.m */,
 				3B6490731C9DF7F000076568 /* TDItemMarkState.h */,
 				3B6490451C9DCC6000076568 /* TDRootView.h */,
 				3B6490461C9DCC6000076568 /* TDRootView.m */,
+				3B1C038E1CA115D6004B4286 /* TDTodoCollectionView.h */,
+				3B1C038F1CA115D6004B4286 /* TDTodoCollectionView.m */,
 				3B88DF8D1C9E1CE9002C6A58 /* TDTextField.h */,
 				3B88DF8E1C9E1CE9002C6A58 /* TDTextField.m */,
 				3B6490661C9DDB5A00076568 /* Model+UI.h */,
@@ -255,6 +322,7 @@
 				3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */,
 				3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */,
 				3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */,
+				3B1C03911CA1190F004B4286 /* Pull Down Gesture */,
 				3B6490751C9E02B400076568 /* Items */,
 				3B6490741C9E02AD00076568 /* Sections */,
 			);
@@ -264,6 +332,7 @@
 		3B6490631C9DD80500076568 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */,
 				3B6490611C9DD78700076568 /* CGGeometry+DoApp.h */,
 				3B6490601C9DD78700076568 /* CGGeometry+DoApp.c */,
 				3BBA11511C9F11C800E7C688 /* CATransaction+TD_Blocks.h */,
@@ -350,10 +419,12 @@
 				3B6490081C9DCBB100076568 /* Sources */,
 				3B6490091C9DCBB100076568 /* Frameworks */,
 				3B64900A1C9DCBB100076568 /* Resources */,
+				3B1C038D1CA10820004B4286 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3B1C038C1CA10820004B4286 /* PBXTargetDependency */,
 			);
 			name = "#Do";
 			productName = "#Do";
@@ -429,6 +500,12 @@
 			mainGroup = 3B6490031C9DCBB100076568;
 			productRefGroup = 3B64900D1C9DCBB100076568 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3B1C03721CA105C4004B4286 /* Products */;
+					ProjectRef = 3B1C03711CA105C4004B4286 /* FleksyUtilities.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3B64900B1C9DCBB100076568 /* #Do */,
@@ -437,6 +514,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3B1C03771CA105C4004B4286 /* FleksyUtilities.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FleksyUtilities.framework;
+			remoteRef = 3B1C03761CA105C4004B4286 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3B1C03791CA105C4004B4286 /* FleksyUtilitiesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FleksyUtilitiesTests.xctest;
+			remoteRef = 3B1C03781CA105C4004B4286 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3B64900A1C9DCBB100076568 /* Resources */ = {
@@ -471,7 +565,9 @@
 			files = (
 				3BBA11561C9F2C1600E7C688 /* TDPersistentStore.m in Sources */,
 				3B64905C1C9DCD8B00076568 /* TDTodoItemView.m in Sources */,
+				3BBA11731C9F923B00E7C688 /* TDPullDownOptionsView.m in Sources */,
 				3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */,
+				3B1C03901CA115D6004B4286 /* TDTodoCollectionView.m in Sources */,
 				3B88DF951C9E47B3002C6A58 /* TDCellContentView.m in Sources */,
 				3B6490621C9DD78700076568 /* CGGeometry+DoApp.c in Sources */,
 				3B88DF921C9E23C1002C6A58 /* TDSwipeableCollectionViewCell.m in Sources */,
@@ -515,6 +611,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3B1C038C1CA10820004B4286 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FleksyUtilities;
+			targetProxy = 3B1C038B1CA10820004B4286 /* PBXContainerItemProxy */;
+		};
 		3B6490271C9DCBB100076568 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3B64900B1C9DCBB100076568 /* #Do */;
@@ -640,6 +741,11 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SOURCE_ROOT)/submodules",
+					"$(SOURCE_ROOT)",
+					"$(SOURCE_ROOT)/submodules/ObjectiveCUtilities",
+				);
 				INFOPLIST_FILE = "#Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";
@@ -656,6 +762,11 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SOURCE_ROOT)",
+					"$(SOURCE_ROOT)/submodules",
+					"$(SOURCE_ROOT)/submodules/ObjectiveCUtilities",
+				);
 				INFOPLIST_FILE = "#Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "benpious.-Do";
