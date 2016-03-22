@@ -11,8 +11,10 @@
 #import "TDPersistentStore.h"
 #import "TDMutableModelCollection.h"
 #import "TDTheme.h"
+#import "TDTodoItemEditingResponder.h"
+#import <objc/runtime.h>
 
-@interface TDRootViewController () <TDRootViewDelegate, TDThemeable>
+@interface TDRootViewController () <TDRootViewDelegate, TDThemeable, TDTodoItemEditingResponder>
 
 @property (nonatomic, readonly) TDRootView *rootView;
 @property (nonatomic) TDPersistentStore *model;
@@ -93,6 +95,24 @@
     default:
       break;
   }
+}
+
+#pragma mark - responding to user editing
+
+- (BOOL)canPerformAction:(SEL)action
+              withSender:(id)sender {
+  if (sel_isEqual(@selector(userFinishedEditingTodoItemTitle:forItemAtIndexPath:), action)) {
+    return YES;
+  }
+  else {
+    return [super canPerformAction:action
+                        withSender:sender];
+  }
+}
+
+- (void)userFinishedEditingTodoItemTitle:(NSString *)title
+                      forItemAtIndexPath:(NSIndexPath *)indexPath {
+  [self.collectionToDisplay[indexPath.item] setTitle:title];
 }
 
 @end

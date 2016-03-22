@@ -14,7 +14,7 @@
 - (void)removeItemAtIndex:(NSUInteger)index;
 - (void)exchangeItemAtIndex:(NSUInteger)index
             withItemAtIndex:(NSUInteger)otherIndex;
-- (id)objectAtIndexSubscript:(NSUInteger)idx;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 - (void)setObject:(id)obj
           atIndex:(NSUInteger)idx;
 

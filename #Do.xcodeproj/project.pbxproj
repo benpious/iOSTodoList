@@ -162,6 +162,7 @@
 		3BBA11721C9F923B00E7C688 /* TDPullDownOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPullDownOptionsView.m; sourceTree = "<group>"; };
 		3BDC50171CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectModel+KCOrderedAccessorFix.h"; path = "submodules/KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = SOURCE_ROOT; };
 		3BDC50181CA1CC11000D7BF0 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectModel+KCOrderedAccessorFix.m"; path = "submodules/KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = SOURCE_ROOT; };
+		3BE3D2511CA1FC5800759D2E /* TDTodoItemEditingResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTodoItemEditingResponder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +298,7 @@
 				3B4C2F241C9E5E5F00B8901D /* Theming */,
 				3B6490421C9DCBEA00076568 /* TDRootViewController.h */,
 				3B6490431C9DCBEA00076568 /* TDRootViewController.m */,
+				3BE3D2511CA1FC5800759D2E /* TDTodoItemEditingResponder.h */,
 				3B6490731C9DF7F000076568 /* TDItemMarkState.h */,
 				3B6490451C9DCC6000076568 /* TDRootView.h */,
 				3B6490461C9DCC6000076568 /* TDRootView.m */,

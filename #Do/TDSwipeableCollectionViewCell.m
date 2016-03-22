@@ -38,6 +38,11 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   return self;
 }
 
+- (void)prepareForReuse {
+  [super prepareForReuse];
+  self.indexPath = nil;
+}
+
 #pragma mark - user actions
 
 - (void)panDetected:(UIPanGestureRecognizer *)gesture {
@@ -92,7 +97,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 }
 
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation {
-  if (translation > 0) {
+  if (translation < 0) {
     return TDItemMarkStateDeleted;
   }
   else {

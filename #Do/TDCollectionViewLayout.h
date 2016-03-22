@@ -15,13 +15,15 @@ extern NSString *const kPullDownHeaderElementKind;
 typedef NS_ENUM(NSUInteger, TDCollectionViewLayoutState) {
   TDCollectionViewLayoutStateNormal,
   TDTodoCollectionViewLayoutStatePickingSection,
+  TDTodoCollectionViewLayoutStateAddingNewItem,
 };
 
 @protocol TDCCollectionViewLayoutDelegate <NSObject>
 
 - (TDCollectionViewLayoutState)stateForCollectionViewLayout:(TDCollectionViewLayout *)layout;
 - (NSIndexPath *)indexPathToPinToTopForCollectionViewLayout:(TDCollectionViewLayout *)layout;
-- (NSArray<NSIndexPath *> *)cellsAboveTransitionCollectionViewLayout:(TDCollectionViewLayout *)layout;
+- (NSArray<NSIndexPath *> *)indexPathsAboveTransitionCollectionViewLayout:(TDCollectionViewLayout *)layout;
+- (NSArray<NSIndexPath *> *)indexPathsBelowTransitionCollectionViewLayout:(TDCollectionViewLayout *)layout;
 
 @end
 

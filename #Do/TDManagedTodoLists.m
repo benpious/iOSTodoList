@@ -39,7 +39,7 @@
        inListAtIndex:idx];
 }
 
-- (id)objectAtIndexSubscript:(NSUInteger)idx {
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
   return self.list[idx];
 }
 

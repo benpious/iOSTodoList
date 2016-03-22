@@ -12,4 +12,6 @@
 
 @interface TDTodoSectionItemView : UIView <TDSectionDisplay, TDThemeable>
 
+@property (nonatomic, weak) id<UITextFieldDelegate> titleFieldDelegate;
+
 @end

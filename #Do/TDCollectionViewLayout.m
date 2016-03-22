@@ -7,6 +7,7 @@
 //
 
 #import "TDCollectionViewLayout.h"
+#import <FleksyUtilities/NSArray+FleksyUtilities.h>
 
 NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 
@@ -17,14 +18,21 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)indexPath {
   UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:indexPath];
   TDCollectionViewLayoutState state = [self.todoLayoutDelegate stateForCollectionViewLayout:self];
+  CGRect frame = attributes.frame;
   if (state == TDTodoCollectionViewLayoutStatePickingSection) {
-    attributes.frame = CGRectMake(attributes.frame.origin.x,
-                                  self.collectionView.bounds.size.height,
-                                  attributes.frame.size.width,
-                                  attributes.frame.size.height);
-    attributes.alpha = 1;
-    attributes.zIndex = MAX(1, attributes.zIndex);
+    NSArray<NSIndexPath *> *paths = [self.todoLayoutDelegate indexPathsAboveTransitionCollectionViewLayout:self];
+    frame.origin.y = [paths fly_exists:^BOOL(__kindof NSIndexPath *p) {
+      return [p compare:indexPath] == NSOrderedSame;
+    }] ? -attributes.frame.size.height : self.collectionView.bounds.size.height;
+    attributes.frame = frame;
   }
+  else {
+    attributes.alpha = 1;
+    frame.origin.x = -frame.size.width;
+    attributes.frame = frame;
+  }
+  attributes.alpha = 1;
+  attributes.zIndex = MAX(1, attributes.zIndex);
   return attributes;
 }
 
@@ -37,8 +45,8 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
                                   attributes.frame.size.width,
                                   attributes.frame.size.height);
     attributes.alpha = 1;
-    attributes.zIndex = MAX(1, attributes.zIndex);
   }
+  attributes.zIndex = MAX(1, attributes.zIndex);
   return attributes;
 }
 
@@ -67,25 +75,39 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 
 #pragma mark - adding a new todo item
 
-//- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-//  UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-//  if ([indexPath isEqual:[self.todoLayoutDelegate indexPathToPinToTopForCollectionViewLayout:self]]) {
-//    CGRect frame = attributes.frame;
-//    frame.origin.y = 0;
-//    attributes.frame = frame;
-//    attributes.zIndex = NSIntegerMax;
-//  }
-//  return attributes;
-//}
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+  UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+  if ([indexPath isEqual:[self.todoLayoutDelegate indexPathToPinToTopForCollectionViewLayout:self]]) {
+    CGRect frame = attributes.frame;
+    frame.origin.y = 0;
+    attributes.frame = frame;
+  }
+  attributes.zIndex = MAX(1, attributes.zIndex);
+  return attributes;
+}
 
 #pragma mark - pull down header
+
+- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(NSString *)elementKind
+                                                                                        atIndexPath:(NSIndexPath *)elementIndexPath {
+  UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:elementKind
+                                                                                       atIndexPath:elementIndexPath];
+  if ([elementKind isEqualToString:kPullDownHeaderElementKind] &&
+      [elementIndexPath compare:self.pullDownPath] == NSOrderedSame) {
+    attributes.zIndex = 0;
+    return attributes;
+  }
+  else {
+    return attributes;
+  }
+}
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind
                                                                      atIndexPath:(NSIndexPath *)indexPath {
   UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:elementKind
                                                                                        atIndexPath:indexPath];
   if ([elementKind isEqualToString:kPullDownHeaderElementKind] &&
-      [indexPath isEqual:self.pullDownPath]) {
+      [indexPath compare:self.pullDownPath] == NSOrderedSame) {
     CGRect bounds = self.collectionView.bounds;
     if (!attributes) {
       attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:elementKind
@@ -100,7 +122,6 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
                                   self.collectionView.contentOffset.y,
                                   frame.size.width,
                                   frame.size.height);
-    attributes.zIndex = 0;
     attributes.transform = CGAffineTransformMakeTranslation(0, self.itemSize.height + self.collectionView.contentOffset.y);
     return attributes;
   }

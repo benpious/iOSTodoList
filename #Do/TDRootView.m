@@ -13,15 +13,21 @@
 #import "TDPullDownOptionsView.h"
 #import "TDTodoCollectionView.h"
 
-@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate, TDPullDownResponder, TDCCollectionViewLayoutDelegate>
+#pragma mark - extension
+
+@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate ,TDSwipeableCollectionViewCellDelegate, TDPullDownResponder, TDCCollectionViewLayoutDelegate>
 
 @property (nonatomic) TDTodoCollectionView *collectionView;
+#pragma mark - layout state
 @property (nonatomic) TDCollectionViewLayoutState currentCollectionViewOperation;
+@property (nonatomic) NSIndexPath *lastSelectedIndexPath;
 
 @end
 
 @implementation TDRootView
 @synthesize theme = _theme;
+
+#pragma mark - initialization
 
 - (instancetype)initWithDelegate:(id<TDRootViewDelegate>)delegate {
   if (self = [super init]) {
@@ -38,6 +44,8 @@
   return self;
 }
 
+#pragma mark - layout
+
 - (void)layoutSubviews {
   [super layoutSubviews];
   CGRect bounds = self.bounds;
@@ -53,6 +61,7 @@
   flowLayout.itemSize = CGSizeMake(bounds.size.width, bounds.size.height / visibleItems);
 }
 
+#pragma mark - setters and getters
 
 - (void)setCollectionView:(TDTodoCollectionView *)collectionView {
   [_collectionView removeFromSuperview];
@@ -76,12 +85,12 @@
   if (hadPriorDataSource) {
     self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStatePickingSection;
     [self.collectionView performBatchUpdates:^{
-    [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForVisibleItems];
-    [self.collectionView insertItemsAtIndexPaths:paths];
-  }
-                                completion:^(BOOL __unused finished) {
-                                  self.currentCollectionViewOperation = TDCollectionViewLayoutStateNormal;
-                                }];
+      [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForVisibleItems];
+      [self.collectionView insertItemsAtIndexPaths:paths];
+    }
+                                  completion:^(BOOL __unused finished) {
+                                    self.currentCollectionViewOperation = TDCollectionViewLayoutStateNormal;
+                                  }];
   }
   else {
     [self.collectionView reloadData];
@@ -126,6 +135,7 @@
 
 - (void)collectionView:(UICollectionView *)__unused collectionView
 didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  self.lastSelectedIndexPath = indexPath;
   [self.delegate selectedItemAtIndex:indexPath.item];
 }
 
@@ -182,8 +192,14 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 - (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
   [self.delegate userSelectedPullDownOption:selection];
   if (selection == TDPullDownSelectionAddNew) {
-    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0
-                                                                       inSection:0]]];
+    self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStateAddingNewItem;
+    [self.collectionView performBatchUpdates:^{
+      [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0
+                                                                         inSection:0]]];
+    }
+                                  completion:^(BOOL __unused  finished) {
+                                    /* TODO: set to begin editing */
+                                  }];
   }
 }
 
@@ -191,6 +207,45 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
 - (TDCollectionViewLayoutState)stateForCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
   return self.currentCollectionViewOperation;
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsBelowTransitionCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  if (self.currentCollectionViewOperation == TDTodoCollectionViewLayoutStatePickingSection) {
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger i = 0; i < self.lastSelectedIndexPath.item; i++) {
+      [array addObject:[NSIndexPath indexPathForItem:i
+                                           inSection:0]];
+    }
+    return array;
+  }
+  else {
+    return nil;
+  }
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsAboveTransitionCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  if (self.currentCollectionViewOperation == TDTodoCollectionViewLayoutStatePickingSection) {
+    NSUInteger count = self.collectionView.visibleCells.count;
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger i = self.lastSelectedIndexPath.item; i < count; i++) {
+      [array addObject:[NSIndexPath indexPathForItem:i
+                                           inSection:0]];
+    }
+    return array;
+  }
+  else {
+    return nil;
+  }
+}
+
+- (NSIndexPath *)indexPathToPinToTopForCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  if (self.currentCollectionViewOperation == TDTodoCollectionViewLayoutStateAddingNewItem) {
+    return [NSIndexPath indexPathForItem:0
+                               inSection:0];
+  }
+  else {
+    return nil;
+  }
 }
 
 @end

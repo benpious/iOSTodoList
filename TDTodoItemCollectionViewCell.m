@@ -8,9 +8,10 @@
 
 #import "TDTodoItemCollectionViewCell.h"
 #import "TDTodoItemView.h"
+#import "TDTodoItemEditingResponder.h"
 #import "CGGeometry+DoApp.h"
 
-@interface TDTodoItemCollectionViewCell () <UITextViewDelegate, UITextFieldDelegate>
+@interface TDTodoItemCollectionViewCell () <UITextFieldDelegate>
 
 @property (nonatomic) TDTodoItemView *todoContentView;
 
@@ -36,11 +37,13 @@
   self.todoContentView.center = center;
 }
 
-#pragma mark - collection view cell
+#pragma mark - user actions
 
-- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
-  UICollectionViewLayoutAttributes *attributes = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-  return attributes;
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  id target = [self targetForAction:@selector(userFinishedEditingTodoItemTitle:forItemAtIndexPath:)
+                         withSender:self];
+  [target userFinishedEditingTodoItemTitle:textField.text
+                        forItemAtIndexPath:self.indexPath];
 }
 
 #pragma mark - setters
@@ -75,6 +78,7 @@
 - (void)setTodoContentView:(TDTodoItemView *)todoContentView {
   [_todoContentView removeFromSuperview];
   _todoContentView = todoContentView;
+  _todoContentView.titleFieldDelegate = self;
   self.contentEffectView.contentView =_todoContentView;
   [self setNeedsLayout];
 }

@@ -8,9 +8,10 @@
 
 #import "TDTodoSectionCollectionViewCell.h"
 #import "TDTodoSectionItemView.h"
+#import "TDTodoItemEditingResponder.h"
 #import "CGGeometry+DoApp.h"
 
-@interface TDTodoSectionCollectionViewCell ()
+@interface TDTodoSectionCollectionViewCell () <UITextFieldDelegate>
 
 @property (nonatomic) TDTodoSectionItemView *sectionContentView;
 
@@ -34,6 +35,15 @@
   self.sectionContentView.center = td_CGRectGetCenter(bounds);
 }
 
+#pragma mark - user actions
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  id target = [self targetForAction:@selector(userFinishedEditingTodoItemTitle:forItemAtIndexPath:)
+                         withSender:self];
+  [target userFinishedEditingTodoItemTitle:textField.text
+                        forItemAtIndexPath:self.indexPath];
+}
+
 #pragma mark - setters
 
 - (void)setName:(NSString *)name {
@@ -47,14 +57,15 @@
 - (void)setSectionContentView:(TDTodoSectionItemView *)sectionContentView {
   [_sectionContentView removeFromSuperview];
   _sectionContentView = sectionContentView;
+  self.sectionContentView.titleFieldDelegate = self;
   self.contentEffectView.contentView = _sectionContentView;
   [self setNeedsLayout];
 }
 
 - (BOOL)isTranslationValid:(CGPoint)translation {
   return translation.x > 0 &&
-  translation.x > self.minimumSwipeDistance &&
-  translation.y < self.maximumVerticalSwipeDistance;
+  translation.x < self.minimumSwipeDistance &&
+  translation.y > self.maximumVerticalSwipeDistance;
 }
 
 @end

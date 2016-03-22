@@ -20,7 +20,7 @@
   inTodoItemsAtIndex:0];
 }
 
-- (id)objectAtIndexSubscript:(NSUInteger)idx {
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
   return self.todoItems[idx];
 }
 

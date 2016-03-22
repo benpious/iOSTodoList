@@ -41,5 +41,6 @@
 @property (nonatomic, readonly) CGFloat maximumVerticalSwipeDistance;
 @property (nonatomic) CGFloat swipeOffset;
 @property (nonatomic, readonly) BOOL allowsSwiping;
+@property (nonatomic) NSIndexPath *indexPath;
 
 @end

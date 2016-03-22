@@ -73,4 +73,9 @@
   self.backgroundColor = theme.foregroundColor;
 }
 
+- (void)setTitleFieldDelegate:(id<UITextFieldDelegate>)titleFieldDelegate {
+  _titleFieldDelegate = titleFieldDelegate;
+  self.titleField.delegate = _titleFieldDelegate;
+}
+
 @end
