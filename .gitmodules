@@ -1,3 +1,9 @@
 [submodule "submodules"]
-	path = submodules
+	path = submodules/KCOrderedAccessorFix
+	url = https://github.com/CFKevinRef/KCOrderedAccessorFix.git
+[submodule "submodules/ObjectiveCUtilities"]
+	path = submodules/ObjectiveCUtilities
+	url = git@github.com:benpious/ObjectiveCUtilities.git
+[submodule "submodules/KCOrderedAccessorFix"]
+	path = submodules/KCOrderedAccessorFix
 	url = https://github.com/CFKevinRef/KCOrderedAccessorFix.git
