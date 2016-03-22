@@ -46,7 +46,7 @@
         break;
     }
     CGRect textRect = CGRectMake(x, (size.height - textSize.height) / 2, textSize.width, textSize.height);
-    return CGRectContainsPoint(textRect, point);
+    return CGRectContainsPoint(textRect, point) || !self.text.length;
   }
   else {
     return NO;

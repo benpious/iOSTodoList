@@ -13,10 +13,11 @@
 @dynamic list;
 
 - (void)pushNewItem {
-  NSEntityDescription *entityDescription = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel.entitiesByName[NSStringFromClass([TDManagedTodoSection class])];
+  NSEntityDescription *entityDescription = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel.entitiesByName[@"TodoSection"];
   TDManagedTodoSection *item = [[TDManagedTodoSection alloc] initWithEntity:entityDescription
                                              insertIntoManagedObjectContext:self.managedObjectContext];
-  [self addListObject:item];
+  [self insertObject:item
+       inListAtIndex:0];
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index {

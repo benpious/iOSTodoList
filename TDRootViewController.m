@@ -79,14 +79,10 @@
                                   withState:state];
 }
 
-- (void)addNewItem {
-  [self.collectionToDisplay pushNewItem];
-}
-
 - (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
   switch (selection) {
     case TDPullDownSelectionAddNew:
-      [self.currentSection pushNewItem];
+      [self.collectionToDisplay pushNewItem];
       break;
     case TDPullDownSelectionGoBack:
       if (![self.collectionToDisplay isEqual:self.sections]) {

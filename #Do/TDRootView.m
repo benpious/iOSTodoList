@@ -13,9 +13,10 @@
 #import "TDPullDownOptionsView.h"
 #import "TDTodoCollectionView.h"
 
-@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate, TDPullDownResponder>
+@interface TDRootView () <UICollectionViewDataSource, UICollectionViewDelegate, TDSwipeableCollectionViewCellDelegate, TDPullDownResponder, TDCCollectionViewLayoutDelegate>
 
-@property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) TDTodoCollectionView *collectionView;
+@property (nonatomic) TDCollectionViewLayoutState currentCollectionViewOperation;
 
 @end
 
@@ -32,6 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
     self.collectionView = [[TDTodoCollectionView alloc] initWithPullDownResponder:self];
+    self.collectionView.todoLayout.todoLayoutDelegate = self;
   }
   return self;
 }
@@ -52,7 +54,7 @@
 }
 
 
-- (void)setCollectionView:(UICollectionView *)collectionView {
+- (void)setCollectionView:(TDTodoCollectionView *)collectionView {
   [_collectionView removeFromSuperview];
   _collectionView.dataSource = nil;
   _collectionView.delegate = nil;
@@ -72,12 +74,13 @@
                                          inSection:0]];
   }
   if (hadPriorDataSource) {
+    self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStatePickingSection;
     [self.collectionView performBatchUpdates:^{
     [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForVisibleItems];
     [self.collectionView insertItemsAtIndexPaths:paths];
   }
                                 completion:^(BOOL __unused finished) {
-    
+                                  self.currentCollectionViewOperation = TDCollectionViewLayoutStateNormal;
                                 }];
   }
   else {
@@ -182,6 +185,12 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0
                                                                        inSection:0]]];
   }
+}
+
+#pragma mark collection view todo layout delegate
+
+- (TDCollectionViewLayoutState)stateForCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  return self.currentCollectionViewOperation;
 }
 
 @end

@@ -16,23 +16,29 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)indexPath {
   UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:indexPath];
-  attributes.frame = CGRectMake(attributes.frame.origin.x,
-                                self.collectionView.bounds.size.height,
-                                attributes.frame.size.width,
-                                attributes.frame.size.height);
-  attributes.alpha = 1;
-  attributes.zIndex = MAX(1, attributes.zIndex);
+  TDCollectionViewLayoutState state = [self.todoLayoutDelegate stateForCollectionViewLayout:self];
+  if (state == TDTodoCollectionViewLayoutStatePickingSection) {
+    attributes.frame = CGRectMake(attributes.frame.origin.x,
+                                  self.collectionView.bounds.size.height,
+                                  attributes.frame.size.width,
+                                  attributes.frame.size.height);
+    attributes.alpha = 1;
+    attributes.zIndex = MAX(1, attributes.zIndex);
+  }
   return attributes;
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
   UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
-  attributes.frame = CGRectMake(attributes.frame.origin.x,
-                                0 - attributes.frame.size.height,
-                                attributes.frame.size.width,
-                                attributes.frame.size.height);
-  attributes.alpha = 1;
-  attributes.zIndex = MAX(1, attributes.zIndex);
+  TDCollectionViewLayoutState state = [self.todoLayoutDelegate stateForCollectionViewLayout:self];
+  if (state == TDTodoCollectionViewLayoutStatePickingSection) {
+    attributes.frame = CGRectMake(attributes.frame.origin.x,
+                                  0 - attributes.frame.size.height,
+                                  attributes.frame.size.width,
+                                  attributes.frame.size.height);
+    attributes.alpha = 1;
+    attributes.zIndex = MAX(1, attributes.zIndex);
+  }
   return attributes;
 }
 
@@ -58,6 +64,19 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
     return context;
   }
 }
+
+#pragma mark - adding a new todo item
+
+//- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+//  UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+//  if ([indexPath isEqual:[self.todoLayoutDelegate indexPathToPinToTopForCollectionViewLayout:self]]) {
+//    CGRect frame = attributes.frame;
+//    frame.origin.y = 0;
+//    attributes.frame = frame;
+//    attributes.zIndex = NSIntegerMax;
+//  }
+//  return attributes;
+//}
 
 #pragma mark - pull down header
 
