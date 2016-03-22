@@ -57,12 +57,6 @@
   }
 }
 
-#pragma mark - reusable view
-
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
-  [super applyLayoutAttributes:layoutAttributes];
-}
-
 #pragma mark - setters
 
 - (void)setOptionViews:(NSArray *)optionViews {

@@ -95,7 +95,8 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
   if ([elementKind isEqualToString:kPullDownHeaderElementKind] &&
       [elementIndexPath compare:self.pullDownPath] == NSOrderedSame) {
     attributes.zIndex = 0;
-    return attributes;
+    attributes.transform = CGAffineTransformIdentity;
+    attributes.transform3D = CATransform3DIdentity;    return attributes;
   }
   else {
     return attributes;
@@ -117,12 +118,12 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
                                     self.itemSize.width,
                                     self.itemSize.height);
     }
+    attributes.zIndex = 0;
     CGRect frame = attributes.frame;
     attributes.frame = CGRectMake(frame.origin.x,
-                                  self.collectionView.contentOffset.y,
+                                  self.itemSize.height + self.collectionView.contentOffset.y * 2,
                                   frame.size.width,
                                   frame.size.height);
-    attributes.transform = CGAffineTransformMakeTranslation(0, self.itemSize.height + self.collectionView.contentOffset.y);
     return attributes;
   }
   else {
