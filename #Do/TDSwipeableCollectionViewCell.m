@@ -55,8 +55,10 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
       self.swipeMarkingState = [self markStateForTranslation:translation.x];
       self.swipeOffset = translation.x;
       if (gesture.state == UIGestureRecognizerStateEnded) {
-        [self.swipeActionDelegate userSwipedOnCell:self
-                                        withAction:self.swipeMarkingState];
+        if (ABS(translation.x) > self.minimumSwipeDistance) {
+          [self.swipeActionDelegate userSwipedOnCell:self
+                                          withAction:self.swipeMarkingState];
+        }
         [self resetSwipingState];
       }
       else if (gesture.state == UIGestureRecognizerStateCancelled) {
@@ -80,19 +82,19 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 - (BOOL)isTranslationValid:(CGPoint)translation {
   CGPoint absoluteTranslation = CGPointMake(ABS(translation.x), ABS(translation.y));
   return self.hasRecognizedSwipe ||
-  (absoluteTranslation.x > self.minimumSwipeDistance &&
+  (absoluteTranslation.x > 4 &&
    absoluteTranslation.y < self.maximumVerticalSwipeDistance);
 }
 
 - (void)resetSwipingState {
   self.hasRecognizedSwipe = NO;
   [UIView animateWithDuration:kTDSwipeAnimationsTimeInterval
-                         animations:^{
-                           self.swipeOffset = 0;
-                         }
-                         completion:^(BOOL __unused finished) {
-                           self.swipeMarkingState = self.priorSwipeMarkingState;
-                         }];
+                   animations:^{
+                     self.swipeOffset = 0;
+                   }
+                   completion:^(BOOL __unused finished) {
+                     self.swipeMarkingState = self.priorSwipeMarkingState;
+                   }];
 }
 
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation {

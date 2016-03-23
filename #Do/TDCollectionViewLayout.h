@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, TDCollectionViewLayoutState) {
 - (NSIndexPath *)indexPathToPinToTopForCollectionViewLayout:(TDCollectionViewLayout *)layout;
 - (NSArray<NSIndexPath *> *)indexPathsAboveTransitionCollectionViewLayout:(TDCollectionViewLayout *)layout;
 - (NSArray<NSIndexPath *> *)indexPathsBelowTransitionCollectionViewLayout:(TDCollectionViewLayout *)layout;
+- (NSArray<NSIndexPath *> *)indexPathsToDeleteWithSwipeAnimationForCollectionViewLayout:(TDCollectionViewLayout *)layout;
 
 @end
 

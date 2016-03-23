@@ -21,6 +21,7 @@
 #pragma mark - layout state
 @property (nonatomic) TDCollectionViewLayoutState currentCollectionViewOperation;
 @property (nonatomic) NSIndexPath *lastSelectedIndexPath;
+@property (nonatomic) NSArray<NSIndexPath *> *indexPathsToDelete;
 
 @end
 
@@ -172,10 +173,13 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
       [(id)cell setIsDone:NO];
       break;
     case TDItemMarkStateDeleted:
+      self.indexPathsToDelete = @[indexPath];
       [self.collectionView performBatchUpdates:^{
         [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
       }
-                                    completion:nil];
+                                    completion:^(BOOL __unused finished) {
+                                      self.indexPathsToDelete = nil;
+                                    }];
       break;
   }
 }
@@ -264,6 +268,10 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   else {
     return nil;
   }
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsToDeleteWithSwipeAnimationForCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  return self.indexPathsToDelete;
 }
 
 @end

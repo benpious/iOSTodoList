@@ -27,13 +27,12 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
     attributes.frame = frame;
     attributes.zIndex = MAX(1, attributes.zIndex);
   }
-  else {
-    attributes.alpha = 1;
+  else if ([self.todoLayoutDelegate indexPathsToDeleteWithSwipeAnimationForCollectionViewLayout:self]) {
     frame.origin.x = -frame.size.width;
     attributes.frame = frame;
     attributes.zIndex = 0;
   }
-  attributes.alpha = 1;
+  attributes.alpha = 1; /* Weirdly, at the end of interactive reordering operations the cell to place has zero alpha, so we have to deal with this */
   return attributes;
 }
 
