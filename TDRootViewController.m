@@ -34,16 +34,20 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.model = [[TDPersistentStore alloc] initWithBuiltinStore];
-  self.sections = self.model.lists;
   TDTheme *theme = [[TDTheme alloc] init];
   theme.backgroundColor = [UIColor yellowColor];
   theme.textColor = [UIColor whiteColor];
   theme.foregroundColor = [UIColor grayColor];
   theme.deleteColor = [UIColor redColor];
   theme.doneColor = [UIColor greenColor];
-  self.collectionToDisplay = self.sections;
   self.theme = theme;
+  self.model = [[TDPersistentStore alloc] initWithBuiltinStore];
+  self.sections = self.model.lists;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  self.collectionToDisplay = self.sections;
 }
 
 - (TDRootView *)rootView {

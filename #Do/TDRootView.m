@@ -74,7 +74,7 @@
 }
 
 - (void)setDataSource:(id<TDDisplayDataSource>)dataSource {
-  BOOL hadPriorDataSource = !!_dataSource;
+  id<TDDisplayDataSource> priorDataSource = _dataSource;
   _dataSource = dataSource;
   [_dataSource configureCollectionView:self.collectionView];
   NSMutableArray *paths = [NSMutableArray array];
@@ -82,10 +82,16 @@
     [paths addObject:[NSIndexPath indexPathForItem:i
                                          inSection:0]];
   }
-  if (hadPriorDataSource) {
+  if (priorDataSource) {
     self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStatePickingSection;
+    [self.collectionView sendSubviewToBack:self.collectionView.pullDownView];
+    NSMutableArray *priorIndexPaths = [NSMutableArray array];
+    for (NSUInteger i = 0; i < priorDataSource.numberOfItems; i++) {
+      [priorIndexPaths addObject:[NSIndexPath indexPathForItem:i
+                                                     inSection:0]];
+    }
     [self.collectionView performBatchUpdates:^{
-      [self.collectionView deleteItemsAtIndexPaths:self.collectionView.indexPathsForVisibleItems];
+      [self.collectionView deleteItemsAtIndexPaths:priorIndexPaths];
       [self.collectionView insertItemsAtIndexPaths:paths];
     }
                                   completion:^(BOOL __unused finished) {

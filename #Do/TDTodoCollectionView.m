@@ -68,10 +68,18 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
   return self.pullDownView.frame.origin.y < 0;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)__unused gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)__unused otherGestureRecognizer {
-  /* necessary to ensure that the pan gesture recognizer doesn't consume all hte touch events intended for the scroll view */
-  return YES;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  if ([@[gestureRecognizer, otherGestureRecognizer] containsObject:_panGesture]) {
+    return YES;
+  }
+  else {
+    /*
+     It seems as though UICollectionView privately overrides this, or something else is going on, because unless we have this line,
+     the collectionview continues to scroll even when the user is interactively repositioning cells.
+     */
+    return NO;
+  }
 }
 
 @end
