@@ -9,10 +9,11 @@
 #import "TDSwipeableCollectionViewCell.h"
 #import "TDSwipeBackgroundView.h"
 #import "CGGeometry+DoApp.h"
+#import "TDInteractiveTransitionLayoutAttributes.h"
 
 static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
-@interface TDSwipeableCollectionViewCell ()
+@interface TDSwipeableCollectionViewCell () <UIGestureRecognizerDelegate>
 
 @property (nonatomic) TDSwipeBackgroundView *swipeView;
 #pragma mark - swipe gesture state
@@ -123,6 +124,21 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   self.contentEffectView.center = center;
 }
 
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+  [super applyLayoutAttributes:layoutAttributes];
+  if ([layoutAttributes isKindOfClass:[TDInteractiveTransitionLayoutAttributes class]]) {
+    TDInteractiveTransitionLayoutAttributes *interactiveAttributes = (id)layoutAttributes;
+    self.layer.shadowColor = interactiveAttributes.shadowColor.CGColor;
+    self.layer.shadowOpacity = interactiveAttributes.shadowOpacity;
+    self.layer.shadowOffset = interactiveAttributes.shadowOffset;
+    self.layer.shadowPath = interactiveAttributes.shadowPath.CGPath;
+    self.layer.shadowRadius = interactiveAttributes.shadowBlurRadius;
+  }
+  else {
+    self.layer.shadowOpacity = 0;
+  }
+}
+
 #pragma mark - setters and getters
 
 - (void)setContentEffectView:(TDCellContentView *)contentEffectView {
@@ -145,6 +161,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   [_panGestureRecognizer removeTarget:self
                                action:@selector(panDetected:)];
   _panGestureRecognizer = panGestureRecognizer;
+  _panGestureRecognizer.delegate = self;
   [self addGestureRecognizer:_panGestureRecognizer];
 }
 
@@ -195,6 +212,11 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
 - (void)beginEditingContent {
   /* no op */
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)__unused gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)__unused otherGestureRecognizer {
+  return YES;
 }
 
 @end

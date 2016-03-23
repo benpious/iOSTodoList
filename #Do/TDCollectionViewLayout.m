@@ -7,6 +7,7 @@
 //
 
 #import "TDCollectionViewLayout.h"
+#import "TDInteractiveTransitionLayoutAttributes.h"
 #import <FleksyUtilities/NSArray+FleksyUtilities.h>
 
 NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
@@ -48,6 +49,16 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
   }
   attributes.zIndex = MAX(1, attributes.zIndex);
   return attributes;
+}
+
+#pragma mark - interactive transition
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForInteractivelyMovingItemAtIndexPath:(NSIndexPath *)indexPath
+                                                                         withTargetPosition:(CGPoint)position {
+  UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForInteractivelyMovingItemAtIndexPath:indexPath
+                                                                                           withTargetPosition:position];
+
+  return [TDInteractiveTransitionLayoutAttributes createWithLayoutAttributes:attributes];
 }
 
 #pragma mark - invalidation

@@ -14,9 +14,12 @@
 @interface TDTodoCollectionView : UICollectionView
 
 - (instancetype)initWithPullDownResponder:(id<TDPullDownResponder>)responder;
+- (void)performUpdatesWithDuration:(float)duration
+                      batchUpdates:(void (^)(void))updates
+                        completion:(void (^)(BOOL))completion;
 @property (nonatomic, weak) id<TDPullDownResponder> responder;
 @property (nonatomic, readonly) TDPullDownOptionsView *pullDownView;
 @property (nonatomic, readonly) TDCollectionViewLayout *todoLayout;
-
+@property (nonatomic) float batchUpdateAnimationSpeed;
 
 @end

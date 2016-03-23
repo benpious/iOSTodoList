@@ -42,9 +42,12 @@
                                 self.contentView.layer.shadowOpacity = (float)self.shadowOpacityForContentView;
                               }];
   [UIView animateWithDuration:0.3
+                        delay:0
+                      options:UIViewAnimationOptionBeginFromCurrentState
                    animations:^{
                      self.contentView.transform = self.transformForContentView;
-                   }];
+                   }
+                   completion:nil];
 }
 
 - (void)setContentView:(UIView<TDThemeable> *)contentView {

@@ -12,6 +12,7 @@
 		3B1C03901CA115D6004B4286 /* TDTodoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C038F1CA115D6004B4286 /* TDTodoCollectionView.m */; };
 		3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C2F261C9E5E6E00B8901D /* TDTheme.m */; };
 		3B60656B1CA3050500171120 /* UIColor+TodoUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60656A1CA3050500171120 /* UIColor+TodoUtilities.m */; };
+		3B60656F1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60656E1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.m */; };
 		3B6490111C9DCBB100076568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490101C9DCBB100076568 /* main.m */; };
 		3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490131C9DCBB100076568 /* AppDelegate.m */; };
 		3B64901C1C9DCBB100076568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B64901B1C9DCBB100076568 /* Assets.xcassets */; };
@@ -103,6 +104,8 @@
 		3B4C2F261C9E5E6E00B8901D /* TDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTheme.m; sourceTree = "<group>"; };
 		3B6065691CA3050500171120 /* UIColor+TodoUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TodoUtilities.h"; sourceTree = "<group>"; };
 		3B60656A1CA3050500171120 /* UIColor+TodoUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TodoUtilities.m"; sourceTree = "<group>"; };
+		3B60656D1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDInteractiveTransitionLayoutAttributes.h; sourceTree = "<group>"; };
+		3B60656E1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDInteractiveTransitionLayoutAttributes.m; sourceTree = "<group>"; };
 		3B64900C1C9DCBB100076568 /* #Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6490101C9DCBB100076568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B6490121C9DCBB100076568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				3BBA114F1C9F0F1C00E7C688 /* TDCollectionViewLayout.m */,
 				3B88DF931C9E47B3002C6A58 /* TDCellContentView.h */,
 				3B88DF941C9E47B3002C6A58 /* TDCellContentView.m */,
+				3B60656D1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.h */,
+				3B60656E1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.m */,
 				3B1C03911CA1190F004B4286 /* Pull Down Gesture */,
 				3B6490751C9E02B400076568 /* Items */,
 				3B6490741C9E02AD00076568 /* Sections */,
@@ -588,6 +593,7 @@
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3BBA11691C9F665500E7C688 /* TDResult.m in Sources */,
 				3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */,
+				3B60656F1CA3236900171120 /* TDInteractiveTransitionLayoutAttributes.m in Sources */,
 				3B6490711C9DDC5C00076568 /* TDTodoSectionCollectionViewCell.m in Sources */,
 				3BBA11501C9F0F1C00E7C688 /* TDCollectionViewLayout.m in Sources */,
 				3BBA11651C9F5DCA00E7C688 /* TDManagedTodoLists.m in Sources */,

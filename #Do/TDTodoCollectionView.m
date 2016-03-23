@@ -19,9 +19,10 @@
 #pragma mark - initialization
 
 - (instancetype)initWithPullDownResponder:(id<TDPullDownResponder>)responder {
-  UICollectionViewFlowLayout *flowLayout = [[TDCollectionViewLayout alloc] init];
+  TDCollectionViewLayout *flowLayout = [[TDCollectionViewLayout alloc] init];
   if ((self = [super initWithFrame:CGRectZero
               collectionViewLayout:flowLayout])) {
+    flowLayout.minimumLineSpacing = 2;
     [self registerClass:[TDPullDownOptionsView class]
 forSupplementaryViewOfKind:kPullDownHeaderElementKind
     withReuseIdentifier:NSStringFromClass([TDPullDownOptionsView class])];
@@ -30,6 +31,7 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
     self.responder = responder;
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(panGestureRecognized:)];
+    self.batchUpdateAnimationSpeed = 0.5f;
   }
   return self;
 }
@@ -66,6 +68,26 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
 
 - (BOOL)pullDownViewIsFullyVisible {
   return self.pullDownView.frame.origin.y < 0;
+}
+
+- (void)performUpdatesWithDuration:(float)duration
+                      batchUpdates:(void (^)(void))updates
+                        completion:(void (^)(BOOL))completion {
+  [super performBatchUpdates:^{
+    self.viewForFirstBaselineLayout.layer.speed = duration;
+    updates();
+  }
+                  completion:^(BOOL finished) {
+                    self.viewForFirstBaselineLayout.layer.speed = 1;
+                    completion(finished);
+                  }];
+}
+
+- (void)performBatchUpdates:(void (^)(void))updates
+                 completion:(void (^)(BOOL))completion {
+  [self performUpdatesWithDuration:self.batchUpdateAnimationSpeed
+                      batchUpdates:updates
+                        completion:completion];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
