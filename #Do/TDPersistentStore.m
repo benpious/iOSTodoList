@@ -44,10 +44,10 @@
 
 - (instancetype)initWithStoreURL:(NSURL *)storeLocation {
   if (self = [super init]) {
-#warning delete from this
-    [[NSFileManager defaultManager] removeItemAtURL:storeLocation
-                                              error:nil]; /* FOR TESTING */
-#warning to this
+//#warning delete from this
+//    [[NSFileManager defaultManager] removeItemAtURL:storeLocation
+//                                              error:nil]; /* FOR TESTING */
+//#warning to this
     self.persistenceURL = storeLocation;
     [self setUpCoreData];
     self.lists = [self sectionListFromDatabase];
@@ -191,6 +191,12 @@
       return [[evaluatedObject tags] containsObject:section.title];
     }];
   }];
+}
+
+- (NSError *)writeToDisk {
+  NSError *e = nil;
+  [self.context save:&e];
+  return e;
 }
 
 @end

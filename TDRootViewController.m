@@ -83,6 +83,7 @@
               withState:(TDItemMarkState)state {
   [self.collectionToDisplay markItemAtIndex:index
                                   withState:state];
+  [self handleError:[self.model writeToDisk]];
 }
 
 - (void)userSelectedPullDownOption:(TDPullDownSelection)selection {
@@ -117,6 +118,25 @@
 - (void)userFinishedEditingTodoItemTitle:(NSString *)title
                       forItemAtIndexPath:(NSIndexPath *)indexPath {
   [self.collectionToDisplay[indexPath.item] setTitle:title];
+  [self handleError:[self.model writeToDisk]];
+}
+
+- (void)handleError:(NSError *)error {
+  if (error) {
+    UIAlertController *controller = [[UIAlertController alloc] init];
+    controller.title = NSLocalizedString(@"Error Writing to Disk", @"Informs the user that there was a problem writing their work to the disk");
+    controller.message  = error.localizedDescription;
+    __weak __typeof(self) weakself = self;
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Okay", @"Acknowledges that the alert was read")
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:^(UIAlertAction * __unused action) {
+                                                   [weakself dismissViewControllerAnimated:YES
+                                                                                completion:nil];
+                                                 }]];
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
+  }
 }
 
 @end

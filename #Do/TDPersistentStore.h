@@ -13,6 +13,7 @@
 
 - (instancetype)initWithStoreURL:(NSURL *)storeLocation;
 - (instancetype)initWithBuiltinStore;
+- (NSError *)writeToDisk;
 + (NSURL *)builtInPersistenceURL;
 @property (nonatomic) TDManagedTodoLists *lists;
 
