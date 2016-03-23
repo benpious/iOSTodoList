@@ -25,14 +25,15 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
       return [p compare:indexPath] == NSOrderedSame;
     }] ? -attributes.frame.size.height : self.collectionView.bounds.size.height;
     attributes.frame = frame;
+    attributes.zIndex = MAX(1, attributes.zIndex);
   }
   else {
     attributes.alpha = 1;
     frame.origin.x = -frame.size.width;
     attributes.frame = frame;
+    attributes.zIndex = 0;
   }
   attributes.alpha = 1;
-  attributes.zIndex = MAX(1, attributes.zIndex);
   return attributes;
 }
 
@@ -118,7 +119,7 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
                                     self.itemSize.height);
     }
     CGRect frame = attributes.frame;
-    attributes.alpha = MAX(0, MIN(1, -(self.collectionView.contentOffset.y / self.collectionView.contentSize.height)));
+    attributes.alpha = MAX(0, MIN(1, ((self.itemSize.height - self.collectionView.contentOffset.y) / self.collectionView.bounds.size.height)));
     attributes.frame = CGRectMake(frame.origin.x,
                                   self.itemSize.height + self.collectionView.contentOffset.y * 2,
                                   frame.size.width,

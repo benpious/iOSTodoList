@@ -36,6 +36,7 @@
 #pragma mark - for subclasses
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation;
 - (BOOL)isTranslationValid:(CGPoint)translation;
+- (void)beginEditingContent;
 @property (nonatomic, readonly) BOOL hasRecognizedSwipe;
 @property (nonatomic, readonly) CGFloat minimumSwipeDistance;
 @property (nonatomic, readonly) CGFloat maximumVerticalSwipeDistance;

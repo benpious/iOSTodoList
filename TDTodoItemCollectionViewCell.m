@@ -46,6 +46,10 @@
                         forItemAtIndexPath:self.indexPath];
 }
 
+- (void)beginEditingContent {
+  [self.todoContentView beginEditingContent];
+}
+
 #pragma mark - setters
 
 - (void)setTitle:(NSString *)title {

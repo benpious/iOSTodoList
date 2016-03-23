@@ -192,4 +192,8 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   self.contentEffectView.transform = CGAffineTransformMakeTranslation(_swipeOffset, 0);
 }
 
+- (void)beginEditingContent {
+  /* no op */
+}
+
 @end

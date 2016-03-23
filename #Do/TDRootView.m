@@ -199,12 +199,14 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [self.delegate userSelectedPullDownOption:selection];
   if (selection == TDPullDownSelectionAddNew) {
     self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStateAddingNewItem;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0
+                                                 inSection:0];
     [self.collectionView performBatchUpdates:^{
-      [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0
-                                                                         inSection:0]]];
+      [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
     }
                                   completion:^(BOOL __unused  finished) {
-                                    /* TODO: set to begin editing */
+                                    TDSwipeableCollectionViewCell *cell = (id)[self.collectionView cellForItemAtIndexPath:indexPath];
+                                    [cell beginEditingContent];
                                   }];
   }
 }

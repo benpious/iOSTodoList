@@ -58,4 +58,8 @@
   self.nameField.delegate = _titleFieldDelegate;
 }
 
+- (void)beginEditingContent {
+  [self.nameField becomeFirstResponder];
+}
+
 @end

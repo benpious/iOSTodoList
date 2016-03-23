@@ -12,6 +12,7 @@
 
 @interface TDTodoItemView : UIView <TDTodoItemDisplay, TDThemeable>
 
+- (void)beginEditingContent;
 @property (nonatomic, weak) id<UITextFieldDelegate> titleFieldDelegate;
 
 @end

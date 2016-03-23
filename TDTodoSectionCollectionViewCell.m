@@ -44,6 +44,10 @@
                         forItemAtIndexPath:self.indexPath];
 }
 
+- (void)beginEditingContent {
+  [self.sectionContentView beginEditingContent];
+}
+
 #pragma mark - setters
 
 - (void)setName:(NSString *)name {
