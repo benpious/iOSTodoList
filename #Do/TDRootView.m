@@ -180,6 +180,7 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   switch (state) {
     case UIGestureRecognizerStateBegan:
       [self.collectionView beginInteractiveMovementForItemAtIndexPath:path];
+      [self.collectionView updateInteractiveMovementTargetPosition:position];
       break;
     case UIGestureRecognizerStateChanged:
       [self.collectionView updateInteractiveMovementTargetPosition:position];
