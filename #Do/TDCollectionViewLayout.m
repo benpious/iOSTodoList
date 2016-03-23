@@ -118,6 +118,7 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
                                     self.itemSize.height);
     }
     CGRect frame = attributes.frame;
+    attributes.alpha = MAX(0, MIN(1, -(self.collectionView.contentOffset.y / self.collectionView.contentSize.height)));
     attributes.frame = CGRectMake(frame.origin.x,
                                   self.itemSize.height + self.collectionView.contentOffset.y * 2,
                                   frame.size.width,
