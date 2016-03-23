@@ -163,11 +163,19 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
   [self.delegate markItemAtIndex:indexPath.item
                        withState:action];
-  if (action == TDItemMarkStateDeleted) {
-    [self.collectionView performBatchUpdates:^{
-      [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-    }
-                                  completion:nil];
+  switch (action) {
+    case TDItemMarkStateDone:
+      [(id)cell setIsDone:YES];
+      break;
+    case TDItemMarkStateNotDone:
+      [(id)cell setIsDone:NO];
+      break;
+    case TDItemMarkStateDeleted:
+      [self.collectionView performBatchUpdates:^{
+        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+      }
+                                    completion:nil];
+      break;
   }
 }
 

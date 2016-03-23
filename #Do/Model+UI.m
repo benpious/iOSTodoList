@@ -26,6 +26,7 @@
   if ([cell isKindOfClass:[TDTodoItemCollectionViewCell class]]) {
     TDTodoItemCollectionViewCell *todoCell = (id)cell;
     todoCell.title = self.title;
+    todoCell.isDone = self.isDone;
   }
 }
 

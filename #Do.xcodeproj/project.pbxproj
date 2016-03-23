@@ -11,6 +11,7 @@
 		3B1C038A1CA10820004B4286 /* FleksyUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C03771CA105C4004B4286 /* FleksyUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B1C03901CA115D6004B4286 /* TDTodoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C038F1CA115D6004B4286 /* TDTodoCollectionView.m */; };
 		3B4C2F271C9E5E6E00B8901D /* TDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C2F261C9E5E6E00B8901D /* TDTheme.m */; };
+		3B60656B1CA3050500171120 /* UIColor+TodoUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60656A1CA3050500171120 /* UIColor+TodoUtilities.m */; };
 		3B6490111C9DCBB100076568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490101C9DCBB100076568 /* main.m */; };
 		3B6490141C9DCBB100076568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6490131C9DCBB100076568 /* AppDelegate.m */; };
 		3B64901C1C9DCBB100076568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B64901B1C9DCBB100076568 /* Assets.xcassets */; };
@@ -100,6 +101,8 @@
 		3B1C03921CA11937004B4286 /* TDPullDownResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPullDownResponder.h; sourceTree = "<group>"; };
 		3B4C2F251C9E5E6E00B8901D /* TDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTheme.h; sourceTree = "<group>"; };
 		3B4C2F261C9E5E6E00B8901D /* TDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTheme.m; sourceTree = "<group>"; };
+		3B6065691CA3050500171120 /* UIColor+TodoUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TodoUtilities.h"; sourceTree = "<group>"; };
+		3B60656A1CA3050500171120 /* UIColor+TodoUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TodoUtilities.m"; sourceTree = "<group>"; };
 		3B64900C1C9DCBB100076568 /* #Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6490101C9DCBB100076568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B6490121C9DCBB100076568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				3BBA11521C9F11C800E7C688 /* CATransaction+TD_Blocks.m */,
 				3BBA11671C9F665500E7C688 /* TDResult.h */,
 				3BBA11681C9F665500E7C688 /* TDResult.m */,
+				3B6065691CA3050500171120 /* UIColor+TodoUtilities.h */,
+				3B60656A1CA3050500171120 /* UIColor+TodoUtilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				3B88DF8F1C9E1CE9002C6A58 /* TDTextField.m in Sources */,
 				3B64906E1C9DDC4E00076568 /* TDTodoItemCollectionViewCell.m in Sources */,
 				3BBA115C1C9F48DF00E7C688 /* TDManagedTodoItem.m in Sources */,
+				3B60656B1CA3050500171120 /* UIColor+TodoUtilities.m in Sources */,
 				3B6490471C9DCC6000076568 /* TDRootView.m in Sources */,
 				3BBA11691C9F665500E7C688 /* TDResult.m in Sources */,
 				3BBA115F1C9F491000E7C688 /* TDManagedTodoSection.m in Sources */,

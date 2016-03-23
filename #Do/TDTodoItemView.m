@@ -9,6 +9,7 @@
 #import "TDTodoItemView.h"
 #import "TDTextField.h"
 #import "CGGeometry+DoApp.h"
+#import "UIColor+TodoUtilities.h"
 
 @interface TDTodoItemView ()
 
@@ -38,6 +39,11 @@
 }
 
 #pragma mark - getters and setters
+
+- (void)setIsDone:(BOOL)isDone {
+  _isDone = isDone;
+  self.titleField.textColor = _isDone ? self.theme.textColor.desaturatedColor : self.theme.textColor;
+}
 
 - (void)setTitleField:(TDTextField *)titleField {
   [_titleField removeFromSuperview];
@@ -69,7 +75,7 @@
 
 - (void)setTheme:(TDTheme *)theme {
   _theme = theme;
-  self.titleField.textColor = theme.textColor;
+  self.titleField.textColor = self.isDone ? self.theme.textColor.desaturatedColor : self.theme.textColor;
   self.backgroundColor = theme.foregroundColor;
 }
 

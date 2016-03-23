@@ -17,7 +17,6 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 @property (nonatomic) TDSwipeBackgroundView *swipeView;
 #pragma mark - swipe gesture state
 @property (nonatomic) TDItemMarkState swipeMarkingState;
-@property (nonatomic) TDItemMarkState priorSwipeMarkingState;
 @property (nonatomic) BOOL hasRecognizedSwipe;
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic) UILongPressGestureRecognizer *longPressRecognizer;

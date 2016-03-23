@@ -71,6 +71,7 @@
 - (void)setIsDone:(BOOL)isDone {
   _isDone = isDone;
   self.todoContentView.isDone = isDone;
+  self.priorSwipeMarkingState = self.isDone ? TDItemMarkStateDone : TDItemMarkStateNotDone;
 }
 
 - (void)setIsExpanded:(BOOL)isExpanded {

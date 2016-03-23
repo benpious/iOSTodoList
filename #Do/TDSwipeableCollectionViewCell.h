@@ -43,5 +43,6 @@
 @property (nonatomic) CGFloat swipeOffset;
 @property (nonatomic, readonly) BOOL allowsSwiping;
 @property (nonatomic) NSIndexPath *indexPath;
+@property (nonatomic) TDItemMarkState priorSwipeMarkingState;
 
 @end
