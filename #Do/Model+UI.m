@@ -36,6 +36,10 @@
 
 @implementation TDManagedTodoSection (UI)
 
+- (NSArray<NSNumber *> *)pullDownOptions {
+  return @[@(TDPullDownSelectionAddNew), @(TDPullDownSelectionGoBack)];
+}
+
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state {
   switch (state) {
@@ -102,6 +106,10 @@
 #pragma mark - Section list
 
 @implementation TDManagedTodoLists (UI)
+
+- (NSArray<NSNumber *> *)pullDownOptions {
+  return @[@(TDPullDownSelectionAddNew), @(TDPullDownSelectionGoToOptions)];
+}
 
 - (NSOrderedSet<id<TDDisplayableItem>> *)displayItems {
   return (id)self.list;

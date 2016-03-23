@@ -12,6 +12,10 @@
 @interface TDPullDownOptionsView : UICollectionReusableView
 
 @property (nonatomic) TDPullDownSelection selection;
+@property (nonatomic) NSArray <NSNumber *> *options;
 - (void)userDragAtPoint:(CGPoint)point;
+#pragma mark - configuration for individual sections
+- (void)configureForSectionList;
+- (void)configureForSection;
 
 @end

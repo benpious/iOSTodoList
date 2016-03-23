@@ -20,13 +20,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
-    NSArray *labels = @[@"+", @"<", @"@"];
-    self.optionViews = [labels fly_map:^id(__kindof id o) {
-      UILabel *label = [[UILabel alloc] init];
-      label.text = o;
-      label.textAlignment = NSTextAlignmentCenter;
-      return label;
-    }];
+    [self configureForSectionList];
   }
   return self;
 }
@@ -51,7 +45,7 @@
     UIView *v = self.optionViews[i];
     if (point.x > v.frame.origin.x &&
         point.x < CGRectGetMaxX(v.frame)) {
-      self.selection = i + 1;
+      self.selection = self.options[i].integerValue;
       break;
     }
   }
@@ -68,11 +62,43 @@
 }
 
 - (void)setSelection:(TDPullDownSelection)selection {
-  if (_selection) {
-    self.optionViews[_selection - 1].backgroundColor = [UIColor clearColor];
+  NSUInteger idx  = [self.options indexOfObject:@(_selection)];
+  if (_selection &&
+      idx != NSNotFound) {
+    self.optionViews[idx].backgroundColor = [UIColor clearColor];
   }
   _selection = selection;
-  self.optionViews[_selection - 1].backgroundColor = [UIColor redColor];
+  self.optionViews[[self.options indexOfObject:@(_selection)]].backgroundColor = [UIColor redColor];
 }
+
+#pragma mark - options display management
+
+- (void)configureForSectionList {
+  self.options = @[@(TDPullDownSelectionAddNew), @(TDPullDownSelectionGoToOptions)];
+}
+
+- (void)configureForSection {
+  self.options = @[@(TDPullDownSelectionAddNew), @(TDPullDownSelectionGoBack)];
+}
+
+- (void)setOptions:(NSArray<NSNumber *> *)options {
+  _options = options;
+  self.optionViews = [[options fly_map:^id(__kindof NSNumber *o) {
+    return [self labelForPullDownOption:o.integerValue];
+  }] fly_map:^id(__kindof id o) {
+    UILabel *label = [[UILabel alloc] init];
+    label.text = o;
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
+  }];
+
+}
+
+- (NSString *)labelForPullDownOption:(TDPullDownSelection)option {
+  return @{@(TDPullDownSelectionAddNew): @"+",
+           @(TDPullDownSelectionGoBack): @"<",
+           @(TDPullDownSelectionGoToOptions): @"@"}[@(option)];
+}
+
 
 @end

@@ -11,6 +11,7 @@
 #import "TDManagedTodoItem.h"
 #import "TDManagedTodoLists.h"
 #import "TDSwipeableCollectionViewCell.h"
+#import "TDPullDownResponder.h"
 
 #pragma mark - forward declarations
 
@@ -27,6 +28,7 @@
               withState:(TDItemMarkState)state;
 @property (nonatomic, readonly) NSUInteger numberOfItems;
 @property (nonatomic, readonly) NSOrderedSet<id<TDDisplayableItem>> *displayItems;
+@property (nonatomic, readonly) NSArray<NSNumber *> *pullDownOptions;
 
 @end
 

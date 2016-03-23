@@ -76,6 +76,7 @@
 - (void)setDataSource:(id<TDDisplayDataSource>)dataSource {
   id<TDDisplayDataSource> priorDataSource = _dataSource;
   _dataSource = dataSource;
+  self.collectionView.pullDownView.options = _dataSource.pullDownOptions;
   [_dataSource configureCollectionView:self.collectionView];
   NSMutableArray *paths = [NSMutableArray array];
   for (NSUInteger i = 0; i < dataSource.numberOfItems; i++) {

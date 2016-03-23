@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, TDPullDownSelection) {
   TDPullDownSelectionNone = 0,
   TDPullDownSelectionAddNew = 1,
   TDPullDownSelectionGoBack = 2,
+  TDPullDownSelectionGoToOptions = 3,
 };
 
 @protocol TDPullDownResponder <NSObject>
