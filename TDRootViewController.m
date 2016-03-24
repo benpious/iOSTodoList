@@ -35,9 +35,15 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   TDTheme *theme = [[TDTheme alloc] init];
-  theme.backgroundColor = [UIColor yellowColor];
+  theme.backgroundColor = [UIColor colorWithRed:0.8f
+                                          green:0.75f
+                                           blue:0
+                                          alpha:1];
   theme.textColor = [UIColor whiteColor];
-  theme.foregroundColor = [UIColor grayColor];
+  theme.foregroundColor = [UIColor colorWithRed:0.3f
+                                          green:0.3f
+                                           blue:0.35f
+                                          alpha:1];
   theme.deleteColor = [UIColor redColor];
   theme.doneColor = [UIColor greenColor];
   self.theme = theme;
