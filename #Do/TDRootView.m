@@ -50,8 +50,6 @@
 - (void)layoutSubviews {
   [super layoutSubviews];
   CGRect bounds = self.bounds;
-  self.collectionView.bounds = bounds;
-  self.collectionView.center = td_CGRectGetCenter(bounds);
   CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
   CGFloat oldOffset = self.collectionView.contentInset.top;
   self.collectionView.contentInset = UIEdgeInsetsMake(statusBarHeight, 0, 0, 0);
@@ -60,6 +58,8 @@
   UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
   CGFloat visibleItems = 8;
   flowLayout.itemSize = CGSizeMake(bounds.size.width, bounds.size.height / visibleItems);
+  self.collectionView.bounds = bounds;
+  self.collectionView.center = td_CGRectGetCenter(bounds);
 }
 
 #pragma mark - setters and getters
