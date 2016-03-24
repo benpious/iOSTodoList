@@ -13,10 +13,12 @@
 @interface TDPullDownOptionsView ()
 
 @property (nonatomic) NSArray<UIView *> *optionViews;
+@property (nonatomic) UIView *selectionIndicatorView;
 
 @end
 
 @implementation TDPullDownOptionsView
+@synthesize theme = _theme;
 
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {

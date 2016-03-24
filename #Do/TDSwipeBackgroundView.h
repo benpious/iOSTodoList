@@ -14,7 +14,8 @@
 
 @property (nonatomic) NSString *icon;
 + (id)swipeBackgroundToMarkState:(TDItemMarkState)markState;
-- (void)panDetectedWithStartPoint:(CGPoint)start
-                     currentPoint:(CGPoint)current;
+- (void)userSwipedWithLocation:(CGPoint)location
+                   translation:(CGPoint)translation
+             percentCompletion:(CGFloat)percent;
 
 @end

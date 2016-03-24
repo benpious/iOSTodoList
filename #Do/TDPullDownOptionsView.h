@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TDPullDownResponder.h"
+#import "TDTheme.h"
 
-@interface TDPullDownOptionsView : UICollectionReusableView
+@interface TDPullDownOptionsView : UICollectionReusableView <TDThemeable>
 
 @property (nonatomic) TDPullDownSelection selection;
 @property (nonatomic) NSArray <NSNumber *> *options;

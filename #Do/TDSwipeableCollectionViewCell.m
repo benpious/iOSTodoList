@@ -48,13 +48,16 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 - (void)panDetected:(UIPanGestureRecognizer *)gesture {
   if ([gesture isEqual:self.panGestureRecognizer]) {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-    self.priorSwipeMarkingState = self.swipeMarkingState;
+      self.priorSwipeMarkingState = self.swipeMarkingState;
     }
     CGPoint translation = [gesture translationInView:self];
     if ([self isTranslationValid:translation]) {
       self.hasRecognizedSwipe = YES;
       self.swipeMarkingState = [self markStateForTranslation:translation.x];
       self.swipeOffset = translation.x;
+      [self.swipeView userSwipedWithLocation:[gesture locationInView:self]
+                                 translation:translation
+                           percentCompletion:MIN(ABS(translation.x / self.minimumSwipeDistance), 1)];
       if (gesture.state == UIGestureRecognizerStateEnded) {
         if (ABS(translation.x) > self.minimumSwipeDistance) {
           [self.swipeActionDelegate userSwipedOnCell:self

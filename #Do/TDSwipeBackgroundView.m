@@ -38,6 +38,7 @@
   if (self = [super initWithFrame:frame]) {
     self.iconLabel = [[UILabel alloc] init];
     self.icon = self.class.defaultIconText;
+    self.iconIsOnLeft = NO;
   }
   return self;
 }
@@ -87,9 +88,10 @@
   return @"";
 }
 
-- (void)panDetectedWithStartPoint:(CGPoint)__unused start
-                     currentPoint:(CGPoint)__unused current {
-  
+- (void)userSwipedWithLocation:(CGPoint)__unused location
+                   translation:(CGPoint)__unused translation
+             percentCompletion:(CGFloat)percent {
+  self.iconLabel.alpha = percent;
 }
 
 @end
