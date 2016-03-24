@@ -21,7 +21,9 @@
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index {
-  [self removeListAtIndexes:[NSIndexSet indexSetWithIndex:index]];
+  NSManagedObject *o = self[index];
+  [self removeObjectFromListAtIndex:index];
+  [self.managedObjectContext deleteObject:o];
 }
 
 - (void)exchangeItemAtIndex:(NSUInteger)index
