@@ -42,12 +42,17 @@
 
 - (void)markItemAtIndex:(NSUInteger)index
               withState:(TDItemMarkState)state {
+  id<TDTodoItem> item = self.todoItems[index];
+  NSUInteger firstDoneTodoItemIndex = self.indexOfFirstDoneTodoItem;
   switch (state) {
     case TDItemMarkStateNotDone:
       self.todoItems[index].isDone = NO;
       break;
     case TDItemMarkStateDone:
       self.todoItems[index].isDone = YES;
+      [self removeObjectFromTodoItemsAtIndex:index];
+      [self insertObject:item
+      inTodoItemsAtIndex:firstDoneTodoItemIndex];
       break;
     case TDItemMarkStateDeleted:
       [self removeItemAtIndex:index];
@@ -55,12 +60,25 @@
   }
 }
 
+- (NSUInteger)indexOfFirstDoneTodoItem {
+  NSUInteger result = [self.todoItems indexOfObjectPassingTest:^BOOL(id<TDTodoItem>  obj,
+                                                                     NSUInteger __unused idx,
+                                                                     BOOL *stop) {
+    BOOL result = obj.isDone;
+    *stop = result;
+    return result;
+  }];
+  result = result &&
+  result != NSNotFound ? result : self.todoItems.count - 1;
+  return result;
+}
+
 - (NSOrderedSet<id<TDDisplayableItem>> *)displayItems {
   return (id)self.todoItems;
 }
 
 - (TDSwipeableCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                           cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   TDSwipeableCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.reuseIDForCollectionView
                                                                                   forIndexPath:indexPath];
   [self decorateCollectionViewCell:cell
@@ -140,9 +158,9 @@
 }
 
 - (TDSwipeableCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                           cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   TDSwipeableCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.reuseIDForCollectionView
-                                                                         forIndexPath:indexPath];
+                                                                                  forIndexPath:indexPath];
   [self decorateCollectionViewCell:cell
                          indexPath:indexPath];
   return cell;

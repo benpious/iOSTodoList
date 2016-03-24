@@ -29,6 +29,11 @@
 @property (nonatomic, readonly) NSUInteger numberOfItems;
 @property (nonatomic, readonly) NSOrderedSet<id<TDDisplayableItem>> *displayItems;
 @property (nonatomic, readonly) NSArray<NSNumber *> *pullDownOptions;
+@optional
+/**
+ @note returns the length of the receiver's todoItems property if there are no done todoItems
+ */
+@property (nonatomic, readonly) NSUInteger indexOfFirstDoneTodoItem;
 
 @end
 

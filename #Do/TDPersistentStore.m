@@ -120,6 +120,7 @@
   sectionToItems.maxCount = 0;
   memberSections.inverseRelationship = sectionToItems;
   sectionToItems.inverseRelationship = memberSections;
+  sectionToItems.deleteRule = NSCascadeDeleteRule;
   NSAttributeDescription *todoSectionTitle = [[NSAttributeDescription alloc] init];
   todoSectionTitle.attributeType = NSStringAttributeType;
   todoSectionTitle.name = NSStringFromSelector(@selector(title));
@@ -131,6 +132,7 @@
   NSRelationshipDescription *listToSectionsRelation = [[NSRelationshipDescription alloc] init];
   listToSectionsRelation.name = NSStringFromSelector(@selector(list));
   listToSectionsRelation.destinationEntity = todoSection;
+  listToSectionsRelation.deleteRule = NSCascadeDeleteRule;
   listToSectionsRelation.ordered = YES;
   listToSectionsRelation.minCount = 0;
   listToSectionsRelation.maxCount = 0;

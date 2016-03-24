@@ -25,6 +25,7 @@
 - (void)userLongPressedOnCell:(TDSwipeableCollectionViewCell *)cell
               recognizerState:(UIGestureRecognizerState)state
                    toPosition:(CGPoint)position;
+- (NSIndexPath *)indexPathForCell:(TDSwipeableCollectionViewCell *)cell;
 
 @end
 
@@ -42,7 +43,7 @@
 @property (nonatomic, readonly) CGFloat maximumVerticalSwipeDistance;
 @property (nonatomic) CGFloat swipeOffset;
 @property (nonatomic, readonly) BOOL allowsSwiping;
-@property (nonatomic) NSIndexPath *indexPath;
+@property (nonatomic, readonly) NSIndexPath *indexPath;
 @property (nonatomic) TDItemMarkState priorSwipeMarkingState;
 
 @end

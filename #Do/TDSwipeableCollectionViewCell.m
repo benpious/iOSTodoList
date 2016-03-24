@@ -38,18 +38,10 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   return self;
 }
 
-- (void)prepareForReuse {
-  [super prepareForReuse];
-  self.indexPath = nil;
-}
-
 #pragma mark - user actions
 
 - (void)panDetected:(UIPanGestureRecognizer *)gesture {
   if ([gesture isEqual:self.panGestureRecognizer]) {
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-      self.priorSwipeMarkingState = self.swipeMarkingState;
-    }
     CGPoint translation = [gesture translationInView:self];
     if ([self isTranslationValid:translation]) {
       self.hasRecognizedSwipe = YES;
@@ -59,7 +51,8 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
                                  translation:translation
                            percentCompletion:MIN(ABS(translation.x / self.minimumSwipeDistance), 1)];
       if (gesture.state == UIGestureRecognizerStateEnded) {
-        if (ABS(translation.x) > self.minimumSwipeDistance) {
+        if (ABS(translation.x) > self.minimumSwipeDistance
+            && gesture.state == UIGestureRecognizerStateEnded) {
           [self.swipeActionDelegate userSwipedOnCell:self
                                           withAction:self.swipeMarkingState];
         }
@@ -97,9 +90,7 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
                    animations:^{
                      self.swipeOffset = 0;
                    }
-                   completion:^(BOOL __unused finished) {
-                     self.swipeMarkingState = self.priorSwipeMarkingState;
-                   }];
+                   completion:nil];
 }
 
 - (TDItemMarkState)markStateForTranslation:(CGFloat)translation {
@@ -216,6 +207,10 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   _theme = theme;
   self.swipeView.theme = theme;
   self.contentEffectView.theme = theme;
+}
+
+- (NSIndexPath *)indexPath {
+  return [self.swipeActionDelegate indexPathForCell:self];
 }
 
 #pragma mark swiping logic

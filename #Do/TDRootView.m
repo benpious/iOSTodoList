@@ -164,24 +164,26 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 - (void)userSwipedOnCell:(TDSwipeableCollectionViewCell *)cell
               withAction:(TDItemMarkState)action {
   NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+  if (action == TDItemMarkStateDone ||
+      action == TDItemMarkStateNotDone) {
+    [(id)cell setIsDone:action == TDItemMarkStateNotDone ? NO : YES];
+    if (action == TDItemMarkStateDone) {
+      NSIndexPath *path = [NSIndexPath indexPathForItem:self.dataSource.indexOfFirstDoneTodoItem
+                                              inSection:0];
+      [self.collectionView moveItemAtIndexPath:cell.indexPath
+                                   toIndexPath:path];
+    }
+  }
   [self.delegate markItemAtIndex:indexPath.item
                        withState:action];
-  switch (action) {
-    case TDItemMarkStateDone:
-      [(id)cell setIsDone:YES];
-      break;
-    case TDItemMarkStateNotDone:
-      [(id)cell setIsDone:NO];
-      break;
-    case TDItemMarkStateDeleted:
-      self.indexPathsToDelete = @[indexPath];
-      [self.collectionView performBatchUpdates:^{
-        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-      }
-                                    completion:^(BOOL __unused finished) {
-                                      self.indexPathsToDelete = nil;
-                                    }];
-      break;
+  if (action == TDItemMarkStateDeleted) {
+    self.indexPathsToDelete = @[indexPath];
+    [self.collectionView performBatchUpdates:^{
+      [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    }
+                                  completion:^(BOOL __unused finished) {
+                                    self.indexPathsToDelete = nil;
+                                  }];
   }
 }
 
@@ -206,6 +208,10 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     default:
       break;
   }
+}
+
+- (NSIndexPath *)indexPathForCell:(TDSwipeableCollectionViewCell *)cell {
+  return [self.collectionView indexPathForCell:cell];
 }
 
 #pragma mark - pull down delegate
