@@ -17,13 +17,6 @@
 @implementation TDCellContentView
 @synthesize theme = _theme;
 
-- (instancetype)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
-    
-  }
-  return self;
-}
-
 - (void)layoutSubviews {
   [super layoutSubviews];
   CGRect bounds = self.bounds;
@@ -33,15 +26,7 @@
 
 - (void)setIsContentPressed:(BOOL)isContentPressed {
   _isContentPressed = isContentPressed;
-  [CATransaction transactionWithDuration:0.3
-                              animations:^{
-                                /* TODO: these don't seem to be animating -- maybe we need an explicit animation... */
-                                self.contentView.layer.shadowOffset = CGSizeZero;
-                                self.contentView.layer.shadowRadius = self.contentView.bounds.size.width * self.shadowAdditionalArea;
-                                self.contentView.layer.shadowColor = self.shadowColorForContentView;
-                                self.contentView.layer.shadowOpacity = (float)self.shadowOpacityForContentView;
-                              }];
-  [UIView animateWithDuration:0.3
+  [UIView animateWithDuration:[CATransaction animationDuration]
                         delay:0
                       options:UIViewAnimationOptionBeginFromCurrentState
                    animations:^{
@@ -57,7 +42,7 @@
 }
 
 - (CGAffineTransform)pressedTransform {
-  CGFloat scale = 0.8f;
+  CGFloat scale = 1.2f;
   return CGAffineTransformMakeScale(scale, scale);
 }
 
