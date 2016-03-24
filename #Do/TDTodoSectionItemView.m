@@ -52,6 +52,7 @@
   _theme = theme;
   self.nameField.textColor = theme.textColor;
   self.nameField.tintColor = self.theme.foregroundColor.desaturatedColor;
+  self.nameField.font = self.theme.titleFont;
   self.backgroundColor = theme.foregroundColor;
 }
 

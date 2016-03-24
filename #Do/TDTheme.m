@@ -10,6 +10,13 @@
 
 @implementation TDTheme
 
+- (instancetype)init {
+  if (self = [super init]) {
+    self.titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+  }
+  return self;
+}
+
 - (UIColor *)notDoneColor {
   return self.backgroundColor;
 }

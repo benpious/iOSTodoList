@@ -77,6 +77,7 @@
   _theme = theme;
   self.titleField.textColor = self.isDone ? self.theme.textColor.desaturatedColor : self.theme.textColor;
   self.titleField.tintColor = self.theme.foregroundColor.desaturatedColor;
+  self.titleField.font = self.theme.titleFont;
   self.backgroundColor = theme.foregroundColor;
 }
 

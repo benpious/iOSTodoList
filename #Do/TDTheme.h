@@ -29,6 +29,7 @@
 @property (nonatomic, readonly) UIColor *notDoneColor;
 @property (nonatomic) UIColor *deleteColor;
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
+@property (nonatomic) UIFont *titleFont;
 
 @end
 
