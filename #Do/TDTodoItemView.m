@@ -76,6 +76,7 @@
 - (void)setTheme:(TDTheme *)theme {
   _theme = theme;
   self.titleField.textColor = self.isDone ? self.theme.textColor.desaturatedColor : self.theme.textColor;
+  self.titleField.tintColor = self.theme.foregroundColor.desaturatedColor;
   self.backgroundColor = theme.foregroundColor;
 }
 

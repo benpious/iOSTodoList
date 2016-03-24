@@ -9,6 +9,7 @@
 #import "TDTodoSectionItemView.h"
 #import "TDTextField.h"
 #import "CGGeometry+DoApp.h"
+#import "UIColor+TodoUtilities.h"
 
 @interface TDTodoSectionItemView ()
 
@@ -50,6 +51,7 @@
 - (void)setTheme:(TDTheme *)theme {
   _theme = theme;
   self.nameField.textColor = theme.textColor;
+  self.nameField.tintColor = self.theme.foregroundColor.desaturatedColor;
   self.backgroundColor = theme.foregroundColor;
 }
 

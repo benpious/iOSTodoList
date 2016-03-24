@@ -46,8 +46,9 @@
   [super layoutSubviews];
   CGSize size = self.bounds.size;
   CGFloat proportion = 0.2f;
+  CGFloat padding = 10;
   self.iconLabel.bounds = CGRectMake(0, 0, size.width * proportion, size.height);
-  self.iconLabel.center = CGPointMake(self.iconIsOnLeft ? self.iconLabel.bounds.size.width : size.width - self.iconLabel.bounds.size.width,
+  self.iconLabel.center = CGPointMake(self.iconIsOnLeft ? self.iconLabel.bounds.size.width / 2 + padding : size.width - (self.iconLabel.bounds.size.width / 2 + padding),
                                       size.height / 2);
 }
 
@@ -58,6 +59,7 @@
 }
 
 - (void)setIconIsOnLeft:(BOOL)iconIsOnLeft {
+  self.iconLabel.textAlignment = iconIsOnLeft ? NSTextAlignmentLeft : NSTextAlignmentRight;
   _iconIsOnLeft = iconIsOnLeft;
   [self setNeedsLayout];
 }
@@ -96,6 +98,13 @@
 
 @implementation TDSwipeDoneView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+  if (self = [super initWithFrame:frame]) {
+    self.iconIsOnLeft = YES;
+  }
+  return self;
+}
+
 - (void)setTheme:(TDTheme *)theme {
   [super setTheme:theme];
   self.backgroundColor = self.theme.doneColor;
@@ -108,6 +117,13 @@
 @end
 
 @implementation TDSwipeNotDoneView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+  if (self = [super initWithFrame:frame]) {
+    self.iconIsOnLeft = YES;
+  }
+  return self;
+}
 
 - (void)setTheme:(TDTheme *)theme {
   [super setTheme:theme];

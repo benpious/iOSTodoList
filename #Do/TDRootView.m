@@ -112,6 +112,7 @@
   for (TDSwipeableCollectionViewCell *cell in cells) {
     cell.theme = _theme;
   }
+  self.collectionView.pullDownView.theme = theme;
 }
 
 #pragma mark - collection view methods

@@ -214,9 +214,11 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   /* no op */
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)__unused gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)__unused otherGestureRecognizer {
-  return YES;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  NSArray *ourRecognizers = @[self.panGestureRecognizer, self.longPressRecognizer];
+  return ![ourRecognizers containsObject:gestureRecognizer] ||
+  ![ourRecognizers containsObject:otherGestureRecognizer]; /* We don't want to allow swipes on reordering, or we can crash if we delete and try to interactively reorder */
 }
 
 @end
