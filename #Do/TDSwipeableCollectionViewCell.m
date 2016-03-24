@@ -74,9 +74,10 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
 
 - (void)longPressDetected:(UILongPressGestureRecognizer *)press {
   if ([press isEqual:self.longPressRecognizer]) {
+    CGPoint location = [press locationInView:self];
     [self.swipeActionDelegate userLongPressedOnCell:self
                                     recognizerState:press.state
-                                         toPosition:[press locationInView:self]];
+                                         toPosition:location];
   }
 }
 
@@ -128,6 +129,18 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
   [super applyLayoutAttributes:layoutAttributes];
   if ([layoutAttributes isKindOfClass:[TDInteractiveTransitionLayoutAttributes class]]) {
     TDInteractiveTransitionLayoutAttributes *interactiveAttributes = (id)layoutAttributes;
+    NSArray<NSString *> *keys = @[NSStringFromSelector(@selector(shadowColor)),
+                                  NSStringFromSelector(@selector(shadowOpacity)),
+                                  NSStringFromSelector(@selector(shadowOffset)),
+                                  NSStringFromSelector(@selector(shadowBlurRadius)),
+                                  NSStringFromSelector(@selector(shadowColor))];
+    for (NSString *key in keys) {
+      CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:key];
+      animation.toValue = [interactiveAttributes valueForKey:key];
+      animation.fromValue = [self.layer valueForKey:key];
+      [self.layer addAnimation:animation
+                        forKey:nil];
+    }
     self.layer.shadowColor = interactiveAttributes.shadowColor.CGColor;
     self.layer.shadowOpacity = interactiveAttributes.shadowOpacity;
     self.layer.shadowOffset = interactiveAttributes.shadowOffset;
@@ -135,7 +148,18 @@ static const NSTimeInterval kTDSwipeAnimationsTimeInterval = 0.2;
     self.layer.shadowRadius = interactiveAttributes.shadowBlurRadius;
   }
   else {
+    CABasicAnimation *a1 = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    CABasicAnimation *a2 = [CABasicAnimation animationWithKeyPath:@"shadowRadius"];
+    a1.fromValue = @(self.layer.shadowOpacity);
+    a1.toValue = @(0);
+    a2.fromValue = @(self.layer.shadowRadius);
+    a2.toValue = @(1);
+    [self.layer addAnimation:a1
+                      forKey:nil];
+    [self.layer addAnimation:a2
+                      forKey:nil];
     self.layer.shadowOpacity = 0;
+    self.layer.shadowRadius = 1;
   }
 }
 
