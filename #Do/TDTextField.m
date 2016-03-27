@@ -13,6 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
     self.textAlignment = NSTextAlignmentCenter;
+    self.returnKeyType = UIReturnKeyDone;
   }
   return self;
 }

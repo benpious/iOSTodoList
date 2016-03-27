@@ -24,9 +24,9 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
     NSArray<NSIndexPath *> *paths = [self.todoLayoutDelegate indexPathsAboveTransitionCollectionViewLayout:self];
     frame.origin.y = [paths fly_exists:^BOOL(__kindof NSIndexPath *p) {
       return [p compare:indexPath] == NSOrderedSame;
-    }] ? -attributes.frame.size.height : self.collectionView.bounds.size.height;
+    }] ? self.collectionView.bounds.size.height : -CGRectGetMaxY(attributes.frame);
     attributes.frame = frame;
-    attributes.zIndex = MAX(1, attributes.zIndex);
+    attributes.zIndex = MAX(1, attributes.zIndex) + 5; /* Adding an arbirary number to make sure that we're always bigger than the zIndexes of the cells below us. TODO: This will need to be revisted later. */
   }
   else if ([self.todoLayoutDelegate indexPathsToDeleteWithSwipeAnimationForCollectionViewLayout:self]) {
     frame.origin.x = -frame.size.width;
@@ -41,13 +41,15 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
   UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
   TDCollectionViewLayoutState state = [self.todoLayoutDelegate stateForCollectionViewLayout:self];
   if (state == TDTodoCollectionViewLayoutStatePickingSection) {
-    attributes.frame = CGRectMake(attributes.frame.origin.x,
-                                  0 - attributes.frame.size.height,
-                                  attributes.frame.size.width,
-                                  attributes.frame.size.height);
+    NSIndexPath *path = [self.todoLayoutDelegate indexPathOfTransitionForCollectionViewLayout:self];
+    UICollectionViewLayoutAttributes *startingAttributes = [self layoutAttributesForItemAtIndexPath:path];
+    attributes.zIndex = MAX(1, startingAttributes.zIndex - 1);
+    attributes.frame = startingAttributes.frame;
     attributes.alpha = 1;
   }
-  attributes.zIndex = MAX(1, attributes.zIndex);
+  else {
+    attributes.zIndex = MAX(1, attributes.zIndex);
+  }
   return attributes;
 }
 

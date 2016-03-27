@@ -21,6 +21,7 @@
 #pragma mark - layout state
 @property (nonatomic) TDCollectionViewLayoutState currentCollectionViewOperation;
 @property (nonatomic) NSIndexPath *lastSelectedIndexPath;
+@property (nonatomic) NSUInteger priorElementCount;
 @property (nonatomic) NSArray<NSIndexPath *> *indexPathsToDelete;
 
 @end
@@ -76,6 +77,7 @@
 
 - (void)setDataSource:(id<TDDisplayDataSource>)dataSource {
   id<TDDisplayDataSource> priorDataSource = _dataSource;
+  self.priorElementCount = priorDataSource.numberOfItems;
   _dataSource = dataSource;
   self.collectionView.pullDownView.options = _dataSource.pullDownOptions;
   [_dataSource configureCollectionView:self.collectionView];
@@ -238,6 +240,10 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
   return self.currentCollectionViewOperation;
 }
 
+- (NSIndexPath *)indexPathOfTransitionForCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
+  return self.lastSelectedIndexPath;
+}
+
 - (NSArray<NSIndexPath *> *)indexPathsBelowTransitionCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
   if (self.currentCollectionViewOperation == TDTodoCollectionViewLayoutStatePickingSection) {
     NSMutableArray *array = [NSMutableArray array];
@@ -254,7 +260,7 @@ didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
 - (NSArray<NSIndexPath *> *)indexPathsAboveTransitionCollectionViewLayout:(TDCollectionViewLayout *)__unused layout {
   if (self.currentCollectionViewOperation == TDTodoCollectionViewLayoutStatePickingSection) {
-    NSUInteger count = self.collectionView.visibleCells.count;
+    NSUInteger count = self.priorElementCount;
     NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger i = self.lastSelectedIndexPath.item; i < count; i++) {
       [array addObject:[NSIndexPath indexPathForItem:i
