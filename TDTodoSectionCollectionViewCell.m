@@ -44,6 +44,11 @@
                         forItemAtIndexPath:self.indexPath];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return NO;
+}
+
 - (void)beginEditingContent {
   [self.sectionContentView beginEditingContent];
 }

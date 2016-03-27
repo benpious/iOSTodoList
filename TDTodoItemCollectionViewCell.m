@@ -50,6 +50,11 @@
   [self.todoContentView beginEditingContent];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return NO;
+}
+
 #pragma mark - setters
 
 - (void)setTitle:(NSString *)title {
