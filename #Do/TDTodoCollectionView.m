@@ -75,11 +75,15 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
                         completion:(void (^)(BOOL))completion {
   [super performBatchUpdates:^{
     self.viewForFirstBaselineLayout.layer.speed = duration;
-    updates();
+    if (updates) {
+      updates();
+    }
   }
                   completion:^(BOOL finished) {
                     self.viewForFirstBaselineLayout.layer.speed = 1;
-                    completion(finished);
+                    if (finished) {
+                      completion(finished);
+                    }
                   }];
 }
 

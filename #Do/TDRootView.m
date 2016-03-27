@@ -87,7 +87,7 @@
                                          inSection:0]];
   }
   if (priorDataSource) {
-    self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStatePickingSection;
+    self.currentCollectionViewOperation = TDTodoCollectionViewLayoutStatePickingSection; /* TODO: need a way to make sure that this is a section and not backing up*/
     [self.collectionView sendSubviewToBack:self.collectionView.pullDownView];
     NSMutableArray *priorIndexPaths = [NSMutableArray array];
     for (NSUInteger i = 0; i < priorDataSource.numberOfItems; i++) {

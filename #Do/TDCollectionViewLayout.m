@@ -12,6 +12,8 @@
 
 NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 
+static CATransform3D td_perspectiveTransform();
+
 @implementation TDCollectionViewLayout
 
 #pragma mark - cell layout
@@ -22,10 +24,12 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
   CGRect frame = attributes.frame;
   if (state == TDTodoCollectionViewLayoutStatePickingSection) {
     NSArray<NSIndexPath *> *paths = [self.todoLayoutDelegate indexPathsAboveTransitionCollectionViewLayout:self];
-    frame.origin.y = [paths fly_exists:^BOOL(__kindof NSIndexPath *p) {
+    CGFloat yTranslation = ([paths fly_exists:^BOOL(__kindof NSIndexPath *p) {
       return [p compare:indexPath] == NSOrderedSame;
-    }] ? self.collectionView.bounds.size.height : -CGRectGetMaxY(attributes.frame);
-    attributes.frame = frame;
+    }] ? 1 : -1) * self.collectionView.bounds.size.height;
+    CATransform3D t = CATransform3DMakeTranslation(0, yTranslation, -500);
+    t = CATransform3DConcat(t, td_perspectiveTransform());
+    attributes.transform3D = t;
     attributes.zIndex = MAX(1, attributes.zIndex) + 5; /* Adding an arbirary number to make sure that we're always bigger than the zIndexes of the cells below us. TODO: This will need to be revisted later. */
   }
   else if ([self.todoLayoutDelegate indexPathsToDeleteWithSwipeAnimationForCollectionViewLayout:self]) {
@@ -46,6 +50,7 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
     attributes.zIndex = MAX(1, startingAttributes.zIndex - 1);
     attributes.frame = startingAttributes.frame;
     attributes.alpha = 1;
+    attributes.transform3D = CATransform3DConcat(CATransform3DMakeTranslation(0, 0, 500), td_perspectiveTransform());
   }
   else {
     attributes.zIndex = MAX(1, attributes.zIndex);
@@ -150,3 +155,9 @@ NSString *const kPullDownHeaderElementKind = @"PullDownHeaderElementKind";
 }
 
 @end
+
+static CATransform3D td_perspectiveTransform() {
+  CATransform3D t = CATransform3DIdentity;
+  t.m34 = 1.0f / 800;
+  return t;
+}
