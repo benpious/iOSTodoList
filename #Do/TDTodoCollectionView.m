@@ -11,6 +11,7 @@
 @interface TDTodoCollectionView () <UIGestureRecognizerDelegate>
 
 @property (nonatomic) UIPanGestureRecognizer *panGesture;
+@property (nonnull) UITapGestureRecognizer *tapRecognizer;
 
 @end
 
@@ -28,12 +29,21 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
     withReuseIdentifier:NSStringFromClass([TDPullDownOptionsView class])];
     self.backgroundColor = [UIColor clearColor];
     self.alwaysBounceVertical = YES;
+    self.backgroundView = [[UIView alloc] init];
     self.responder = responder;
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(panGestureRecognized:)];
     self.batchUpdateAnimationSpeed = 0.5f;
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(backgroundViewTapped)];
+    [self.backgroundView addGestureRecognizer:recognizer];
+    self.tapRecognizer = recognizer;
   }
   return self;
+}
+
+- (void)backgroundViewTapped {
+  [self.window endEditing:YES];
 }
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)pan {
@@ -47,6 +57,13 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
 }
 
 #pragma mark - convenience accessors and setters
+
+- (void)setBackgroundView:(UIView *)backgroundView {
+  [super setBackgroundView:backgroundView];
+  if (self.tapRecognizer) {
+    [self.backgroundView addGestureRecognizer:self.tapRecognizer];
+  }
+}
 
 - (void)setPanGesture:(UIPanGestureRecognizer *)panGesture {
   [self removeGestureRecognizer:_panGesture];
@@ -96,7 +113,8 @@ forSupplementaryViewOfKind:kPullDownHeaderElementKind
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-  if ([@[gestureRecognizer, otherGestureRecognizer] containsObject:_panGesture]) {
+  if ([@[gestureRecognizer, otherGestureRecognizer] containsObject:self.panGesture] ||
+      [@[gestureRecognizer, otherGestureRecognizer] containsObject:self.tapRecognizer]) {
     return YES;
   }
   else {
